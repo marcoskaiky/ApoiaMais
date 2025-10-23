@@ -7,7 +7,7 @@ ApoiaMais é um projeto desenvolvido em Laravel, um framework PHP robusto e mode
 - PHP 8.1 ou superior
 - Composer
 - Node.js e NPM
-- SQLite (ou outro banco de dados de sua preferência)
+- MySQL 5.7 ou superior
 
 ## Instalação
 
@@ -37,11 +37,20 @@ php artisan key:generate
 ```
 
 5. Configure o banco de dados
-- O projeto está configurado para usar SQLite por padrão
-- Crie um arquivo de banco de dados SQLite:
+- O projeto está configurado para usar MySQL
+- Crie um banco de dados MySQL:
 ```bash
-touch database/database.sqlite
+mysql -u root -p
+CREATE DATABASE apoiamais;
+exit
 ```
+- Configure as credenciais do banco de dados no arquivo .env:
+  - DB_CONNECTION=mysql
+  - DB_HOST=127.0.0.1
+  - DB_PORT=3306
+  - DB_DATABASE=apoiamais
+  - DB_USERNAME=root
+  - DB_PASSWORD=sua_senha
 
 6. Execute as migrações
 ```bash
