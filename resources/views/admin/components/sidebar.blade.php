@@ -34,7 +34,7 @@
             <span>Itens</span>
         </a>
 
-        <a href="#" class="nav-item">
+        <a href="{{ route('admin.estoque.index') }}" class="nav-item">
             <x-vaadin-stock class="nav-icon" />
             <span>Estoque</span>
         </a>
