@@ -24,7 +24,7 @@
             <span>Campanhas</span>
         </a>
 
-        <a href="#" class="nav-item">
+        <a href="{{ route('admin.item.index') }}" class="nav-item">
             <x-heroicon-o-currency-dollar class="nav-icon" />
             <span>Doações</span>
         </a>
