@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\ItemController as AdminItemController;
 use App\Http\Controllers\Admin\DoadorController as AdminDoadorController;
 use App\Http\Controllers\Admin\EstoqueController as AdminEstoqueController;
+use App\Http\Controllers\Admin\RelatorioController as AdminRelatorioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('/item', AdminItemController::class);
     Route::resource('/doador', AdminDoadorController::class);
     Route::resource('/estoque', AdminEstoqueController::class);
+    Route::resource('/relatorio', AdminRelatorioController::class);
     Route::put('/profile/password/update', [AdminProfileController::class, 'updatePassword'])->name('profile.password.update');
 });
 

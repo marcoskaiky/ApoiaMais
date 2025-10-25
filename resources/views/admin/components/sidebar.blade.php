@@ -39,7 +39,7 @@
             <span>Estoque</span>
         </a>
 
-        <a href="#" class="nav-item">
+        <a href="{{ route('admin.relatorio.index') }}" class="nav-item">
             <x-heroicon-o-document-text class="nav-icon" />
             <span>Relatórios</span>
         </a>
