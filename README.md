@@ -40,9 +40,9 @@ php artisan key:generate
   - DB_USERNAME=root
   - DB_PASSWORD=sua_senha
 
-6. Execute as migrações
+6. Execute as migrações e seeders
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
 7. Compile os assets
@@ -54,6 +54,9 @@ npm run dev
 ```bash
 php artisan serve
 ```
+
+9. Os login de admin e usuario comum se encontra em database/seeders/UserSeeder.php
+
 
 O projeto estará disponível em `http://localhost:8000`
 

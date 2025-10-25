@@ -211,8 +211,8 @@
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <a href="#" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="#" class="btn btn-primary">Criar Conta</a>
+                    <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
+                    <a href="{{ route('register') }}" class="btn btn-primary">Criar Conta</a>
                 </div>
             </div>
         </div>
