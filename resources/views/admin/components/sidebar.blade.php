@@ -19,7 +19,7 @@
             <span>Visão Geral</span>
         </a>
 
-        <a href="#" class="nav-item">
+        <a href="{{ route('admin.doador.index') }}" class="nav-item">
             <x-heroicon-o-currency-dollar class="nav-icon" />
             <span>Doador / Instituição</span>
         </a>
@@ -34,12 +34,12 @@
             <span>Itens</span>
         </a>
 
-        <a href="#" class="nav-item">
+        <a href="{{ route('admin.estoque.index') }}" class="nav-item">
             <x-vaadin-stock class="nav-icon" />
             <span>Estoque</span>
         </a>
 
-        <a href="#" class="nav-item">
+        <a href="{{ route('admin.relatorio.index') }}" class="nav-item">
             <x-heroicon-o-document-text class="nav-icon" />
             <span>Relatórios</span>
         </a>
