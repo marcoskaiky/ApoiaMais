@@ -20,18 +20,33 @@
         </a>
 
         <a href="#" class="nav-item">
-            <x-heroicon-o-briefcase class="nav-icon" />
-            <span>Campanhas</span>
-        </a>
-
-        <a href="#" class="nav-item">
             <x-heroicon-o-currency-dollar class="nav-icon" />
-            <span>Doações</span>
+            <span>Doador / Instituição</span>
         </a>
 
         <a href="#" class="nav-item">
-            <x-heroicon-o-bell class="nav-icon" />
-            <span>Notificações</span>
+            <x-heroicon-o-briefcase class="nav-icon" />
+            <span>Campanhas / Categorias</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <x-heroicon-o-inbox-stack class="nav-icon" />
+            <span>Itens</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <x-vaadin-stock class="nav-icon" />
+            <span>Estoque</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <x-heroicon-o-document-text class="nav-icon" />
+            <span>Relatórios</span>
+        </a>
+
+        <a href="#" class="nav-item">
+            <x-heroicon-s-user-group class="nav-icon" />
+            <span>Usuários</span>
         </a>
     </nav>
 
