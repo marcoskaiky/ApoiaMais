@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ItemController as AdminItemController;
 use App\Http\Controllers\Admin\DoadorController as AdminDoadorController;
 use App\Http\Controllers\Admin\EstoqueController as AdminEstoqueController;
 use App\Http\Controllers\Admin\RelatorioController as AdminRelatorioController;
+use App\Http\Controllers\Admin\CampCateController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,6 +33,13 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('/estoque', AdminEstoqueController::class);
     Route::resource('/relatorio', AdminRelatorioController::class);
     Route::put('/profile/password/update', [AdminProfileController::class, 'updatePassword'])->name('profile.password.update');
+
+    // Cadastros Gerais - Categorias e Campanhas
+    Route::get('/cadastros-gerais', [CampCateController::class, 'index'])->name('cadastros.index');
+    Route::post('/categorias', [CampCateController::class, 'storeCategoria'])->name('categorias.store');
+    Route::delete('/categorias/{id}', [CampCateController::class, 'destroyCategoria'])->name('categorias.destroy');
+    Route::post('/tipos-campanha', [CampCateController::class, 'storeTipoCampanha'])->name('tipos-campanha.store');
+    Route::delete('/tipos-campanha/{id}', [CampCateController::class, 'destroyTipoCampanha'])->name('tipos-campanha.destroy');
 });
 
 require __DIR__.'/auth.php';
