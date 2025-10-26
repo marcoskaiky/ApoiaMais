@@ -6,192 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apoia+ | Transforme a Gestão de Doações</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --primary-color: #0d6efd;
-            --secondary-color: #f8f9fa;
-            --dark-text: #212529;
-            --light-text: #ffffff;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-text);
-        }
-
-        .navbar {
-            padding: 1rem 2rem;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .hero-section {
-            background-color: #6c7b63;
-            color: var(--light-text);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .hero-section h1 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .hero-section p {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            padding: 0.5rem 1.5rem;
-            font-weight: 500;
-        }
-
-        .features-section {
-            padding: 4rem 2rem;
-        }
-
-        .features-section h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .features-section p {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .feature-card {
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            height: 100%;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        .how-it-works {
-            background-color: var(--secondary-color);
-            padding: 4rem 2rem;
-        }
-
-        .how-it-works h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .step {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 2rem;
-        }
-
-        .step-number {
-            background-color: var(--primary-color);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .testimonials {
-            padding: 4rem 2rem;
-        }
-
-        .testimonials h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .testimonials p.lead {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .testimonial-card {
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
-
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section {
-            background-color: var(--secondary-color);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .cta-section p {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        footer {
-            background-color: white;
-            padding: 2rem;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--dark-text);
-            text-decoration: none;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-color);
-        }
-    </style>
+    @vite(['resources/css/home.css'])
 </head>
 
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container">
             <a class="navbar-brand" href="#">Apoia+</a>
@@ -212,13 +30,11 @@
                 </ul>
                 <div class="d-flex">
                     <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-primary">Criar Conta</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <h1>Transforme a Gestão de Doações. Amplifique seu Impacto.</h1>
@@ -227,7 +43,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features-section">
         <div class="container">
             <h2>Funcionalidades Pensadas para sua Organização</h2>
@@ -267,7 +82,6 @@
         </div>
     </section>
 
-    <!-- How It Works -->
     <section class="how-it-works">
         <div class="container">
             <h2>Como Funciona</h2>
@@ -306,7 +120,6 @@
         </div>
     </section>
 
-    <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
             <h2>O que nossos parceiros dizem</h2>
@@ -334,7 +147,6 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Pronto para transformar sua organização?</h2>
@@ -343,7 +155,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-brand mb-4">
@@ -362,10 +173,7 @@
         </div>
     </footer>
 
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
-
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
