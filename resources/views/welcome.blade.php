@@ -29,7 +29,11 @@
                     </li>
                 </ul>
                 <div class="d-flex">
+                    @auth
+                    <a href="{{ route('admin.dashboard') }}" class="btn btn-primary">Acessar Painel</a>
+                    @else
                     <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
+                    @endauth
                 </div>
             </div>
         </div>
