@@ -26,7 +26,7 @@
 
         <a href="{{ route('admin.cadastros.index') }}" class="nav-item {{ request()->routeIs('admin.cadastros.*') ? 'active' : '' }}">
             <x-heroicon-o-briefcase class="nav-icon" />
-            <span>Campanhas / Categorias</span>
+            <span>Categorias / Campanhas</span>
         </a>
 
         <a href="{{ route('admin.item.index') }}" class="nav-item">
