@@ -48,12 +48,6 @@
                         <x-input-error :messages="$errors->get('password')" class="text-danger" />
                     </div>
 
-                    <div class="forgot-password-link">
-                        @if (Route::has('password.request'))
-                        <a href="{{ route('password.request') }}">Esqueceu sua senha?</a>
-                        @endif
-                    </div>
-
                     <button type="submit" class="btn-primary">Entrar</button>
 
                 </form>
