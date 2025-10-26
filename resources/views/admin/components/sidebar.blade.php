@@ -19,7 +19,7 @@
             <span>Visão Geral</span>
         </a>
 
-        <a href="{{ route('admin.doador.index') }}" class="nav-item">
+        <a href="{{ route('admin.doadores.index') }}" class="nav-item">
             <x-heroicon-o-currency-dollar class="nav-icon" />
             <span>Doador / Instituição</span>
         </a>

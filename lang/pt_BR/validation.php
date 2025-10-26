@@ -235,7 +235,33 @@ return [
         'modality' => 'modalidade',
         'category' => 'categoria',
         'blood_type' => 'tipo sanguíneo',
-        'birth_date' => 'data de nascimento'
+        'birth_date' => 'data de nascimento',
+
+        // Doadores
+        'tipo_doador' => 'tipo de doador',
+        'nome_doador' => 'nome',
+        'cpf_doador' => 'CPF',
+        'cnpj_doador' => 'CNPJ',
+        'telefone_doador' => 'telefone',
+        'cep_doador' => 'CEP',
+        'rua_doador' => 'rua',
+        'numero_doador' => 'número',
+        'bairro_doador' => 'bairro',
+        'cidade_doador' => 'cidade',
+        'uf_doador' => 'UF',
+        'complemento_doador' => 'complemento',
+
+        // Instituições
+        'nome_instituicao' => 'nome da instituição',
+        'cnpj_instituicao' => 'CNPJ',
+        'telefone_instituicao' => 'telefone',
+        'cep_instituicao' => 'CEP',
+        'rua_instituicao' => 'rua',
+        'numero_instituicao' => 'número',
+        'bairro_instituicao' => 'bairro',
+        'cidade_instituicao' => 'cidade',
+        'uf_instituicao' => 'UF',
+        'complemento_instituicao' => 'complemento',
     ],
 
 ];
