@@ -262,6 +262,12 @@ return [
         'cidade_instituicao' => 'cidade',
         'uf_instituicao' => 'UF',
         'complemento_instituicao' => 'complemento',
+        
+        // Itens
+        'categoria_id' => 'categoria',
+        'estoque_minimo' => 'estoque mínimo',
+        'validade' => 'validade',
+        'condicao' => 'condição',
     ],
 
 ];

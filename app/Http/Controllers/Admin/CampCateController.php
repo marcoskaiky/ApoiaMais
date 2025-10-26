@@ -9,10 +9,26 @@ use Illuminate\Http\Request;
 
 class CampCateController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categorias = Categoria::orderBy('nome')->get();
-        $tipoCampanhas = TipoCampanha::orderBy('nome')->get();
+        $searchCategoria = $request->input('search_categoria');
+        $searchCampanha = $request->input('search_campanha');
+
+        $categorias = Categoria::query()
+            ->when($searchCategoria, function($query, $search) {
+                return $query->where('nome', 'like', '%' . $search . '%');
+            })
+            ->orderBy('nome')
+            ->paginate(10)
+            ->appends(['search_categoria' => $searchCategoria]);
+
+        $tipoCampanhas = TipoCampanha::query()
+            ->when($searchCampanha, function($query, $search) {
+                return $query->where('nome', 'like', '%' . $search . '%');
+            })
+            ->orderBy('nome')
+            ->paginate(10)
+            ->appends(['search_campanha' => $searchCampanha]);
 
         return view('admin.pages.campanhas-categorias', compact('categorias', 'tipoCampanhas'));
     }
