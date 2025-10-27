@@ -27,7 +27,19 @@ class ReceberDoacaoController extends Controller
         $itens = Item::with('categoria')->orderBy('nome')->get();
         $campanhas = TipoCampanha::orderBy('nome')->get();
 
-        return view('admin.pages.receber-doacao', compact('doacoes','doadores', 'itens', 'campanhas'));
+        // Formatar itens para JavaScript
+        $itensFormatados = $itens->map(function($item) {
+            return [
+                'id' => $item->id,
+                'nome' => $item->nome,
+                'categoria' => $item->categoria->nome ?? 'Sem categoria',
+                'validade' => (bool) $item->validade,
+                'condicao' => (bool) $item->condicao,
+                'tamanho' => (bool) $item->tamanho
+            ];
+        });
+
+        return view('admin.pages.receber-doacao', compact('doacoes', 'doadores', 'itens', 'campanhas', 'itensFormatados'));
     }
 
     /**

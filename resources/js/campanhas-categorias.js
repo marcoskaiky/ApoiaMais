@@ -76,6 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const nomeSpan = row.querySelector('.campanha-nome');
             const formEdit = row.querySelector('.form-edit-campanha');
             const acoesNormais = row.querySelector('.acoes-normais');
+            
+            // Armazenar valores originais
+            const inputNome = formEdit.querySelector('input[name="nome"]');
+            const inputMeta = formEdit.querySelector('input[name="meta"]');
+            inputNome.dataset.originalValue = inputNome.value;
+            inputMeta.dataset.originalValue = inputMeta.value;
 
             nomeSpan.classList.add('d-none');
             formEdit.classList.remove('d-none');
@@ -90,10 +96,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const nomeSpan = row.querySelector('.campanha-nome');
             const formEdit = row.querySelector('.form-edit-campanha');
             const acoesNormais = row.querySelector('.acoes-normais');
-            const input = formEdit.querySelector('input[name="nome"]');
+            const inputNome = formEdit.querySelector('input[name="nome"]');
+            const inputMeta = formEdit.querySelector('input[name="meta"]');
 
-            // Restaurar valor original
-            input.value = nomeSpan.textContent;
+            // Restaurar valores originais
+            inputNome.value = inputNome.dataset.originalValue || nomeSpan.textContent;
+            inputMeta.value = inputMeta.dataset.originalValue || '';
 
             nomeSpan.classList.remove('d-none');
             formEdit.classList.add('d-none');
