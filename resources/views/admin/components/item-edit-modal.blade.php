@@ -36,6 +36,12 @@
                                     Condição
                                 </label>
                             </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" name="tamanho" id="edit_tamanho" value="1">
+                                <label class="form-check-label" for="edit_tamanho">
+                                    Tamanho
+                                </label>
+                            </div>
                         </div>
                     </div>
 

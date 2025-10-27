@@ -13,6 +13,7 @@ class CampCateController extends Controller
     {
         $searchCategoria = $request->input('search_categoria');
         $searchCampanha = $request->input('search_campanha');
+        $tab = $request->input('tab');
 
         $categorias = Categoria::query()
             ->when($searchCategoria, function($query, $search) {
@@ -20,7 +21,10 @@ class CampCateController extends Controller
             })
             ->orderBy('nome')
             ->paginate(10)
-            ->appends(['search_categoria' => $searchCategoria]);
+            ->appends([
+                'search_categoria' => $searchCategoria,
+                'tab' => $tab
+            ]);
 
         $tipoCampanhas = TipoCampanha::query()
             ->when($searchCampanha, function($query, $search) {
@@ -28,7 +32,10 @@ class CampCateController extends Controller
             })
             ->orderBy('nome')
             ->paginate(10)
-            ->appends(['search_campanha' => $searchCampanha]);
+            ->appends([
+                'search_campanha' => $searchCampanha,
+                'tab' => $tab
+            ]);
 
         return view('admin.pages.campanhas-categorias', compact('categorias', 'tipoCampanhas'));
     }
@@ -45,6 +52,19 @@ class CampCateController extends Controller
             ->with('success', 'Categoria criada com sucesso!');
     }
 
+    public function updateCategoria(Request $request, string $id)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+        ]);
+
+        $categoria = Categoria::findOrFail($id);
+        $categoria->update(['nome' => $request->nome]);
+
+        return redirect()->route('admin.cadastros.index', ['tab' => 'categorias'])
+            ->with('success', 'Categoria atualizada com sucesso!');
+    }
+
     public function storeTipoCampanha(Request $request)
     {
         $request->validate([
@@ -57,12 +77,25 @@ class CampCateController extends Controller
             ->with('success', 'Tipo de campanha criado com sucesso!');
     }
 
+    public function updateTipoCampanha(Request $request, string $id)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+        ]);
+
+        $tipoCampanha = TipoCampanha::findOrFail($id);
+        $tipoCampanha->update(['nome' => $request->nome]);
+
+        return redirect()->route('admin.cadastros.index', ['tab' => 'campanhas'])
+            ->with('success', 'Campanha atualizada com sucesso!');
+    }
+
     public function destroyCategoria(string $id)
     {
         $categoria = Categoria::findOrFail($id);
         $categoria->delete();
 
-        return redirect()->route('admin.cadastros.index')
+        return redirect()->route('admin.cadastros.index', ['tab' => 'categorias'])
             ->with('success', 'Categoria excluída com sucesso!');
     }
 
@@ -71,7 +104,7 @@ class CampCateController extends Controller
         $tipoCampanha = TipoCampanha::findOrFail($id);
         $tipoCampanha->delete();
 
-        return redirect()->route('admin.cadastros.index')
+        return redirect()->route('admin.cadastros.index', ['tab' => 'campanhas'])
             ->with('success', 'Tipo de campanha excluído com sucesso!');
     }
 }

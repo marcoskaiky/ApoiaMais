@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @push('scripts')
-    @vite(['resources/js/campanhas-categorias.js'])
+    @vite(['resources/js/campanhas-categorias.js', 'resources/js/sweet-delete.js'])
 @endpush
 
 @section('content')
@@ -72,12 +72,13 @@
                             <h5 class="mb-0">Categorias Existentes</h5>
                             <div class="d-flex gap-2">
                                 <form method="GET" action="{{ route('admin.cadastros.index') }}" class="d-flex gap-2">
+                                    <input type="hidden" name="tab" value="categorias">
                                     <input type="text" name="search_categoria" class="form-control form-control-sm" placeholder="Buscar categorias..." value="{{ request('search_categoria') }}" style="width: 200px;">
                                     <button type="submit" class="btn-sm btn-buscar">
                                         <i class="fas fa-search"></i>
                                     </button>
                                     @if(request('search_categoria'))
-                                        <a href="{{ route('admin.cadastros.index') }}" class="btn btn-sm btn-danger">
+                                        <a href="{{ route('admin.cadastros.index', ['tab' => 'categorias']) }}" class="btn btn-sm btn-danger">
                                             <i class="fas fa-times"></i>
                                         </a>
                                     @endif
@@ -95,16 +96,36 @@
                                     </thead>
                                     <tbody id="categoriasTableBody">
                                         @forelse($categorias as $categoria)
-                                            <tr>
-                                                <td>{{ $categoria->nome }}</td>
-                                                <td class="text-end">
-                                                    <form action="{{ route('admin.categorias.destroy', $categoria->id) }}" method="POST" class="d-inline">
+                                            <tr data-categoria-id="{{ $categoria->id }}">
+                                                <td>
+                                                    <span class="categoria-nome">{{ $categoria->nome }}</span>
+                                                    <form action="{{ route('admin.categorias.update', $categoria->id) }}" method="POST" class="d-none form-edit-categoria">
                                                         @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Tem certeza que deseja excluir esta categoria?')">
-                                                            Excluir
-                                                        </button>
+                                                        @method('PUT')
+                                                        <div class="d-flex gap-2 align-items-center">
+                                                            <input type="text" name="nome" class="form-control form-control-sm" value="{{ $categoria->nome }}" required>
+                                                            <button type="submit" class="btn btn-sm btn-success">
+                                                                <i class="fas fa-check"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-sm btn-secondary btn-cancelar-edit">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                        </div>
                                                     </form>
+                                                </td>
+                                                <td class="text-end">
+                                                    <div class="acoes-normais">
+                                                        <button type="button" class="btn-sm btn-edit-item btn-editar-categoria" title="Editar">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <form action="{{ route('admin.categorias.destroy', $categoria->id) }}" method="POST" class="d-inline form-delete">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="button" class="btn-sm btn-excluir-item btn-delete" title="Excluir">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @empty
@@ -165,12 +186,13 @@
                             <h5 class="mb-0">Campanhas Existentes</h5>
                             <div class="d-flex gap-2">
                                 <form method="GET" action="{{ route('admin.cadastros.index') }}" class="d-flex gap-2">
+                                    <input type="hidden" name="tab" value="campanhas">
                                     <input type="text" name="search_campanha" class="form-control form-control-sm" placeholder="Buscar campanhas..." value="{{ request('search_campanha') }}" style="width: 200px;">
                                     <button type="submit" class="btn-sm btn-buscar">
                                         <i class="fas fa-search"></i>
                                     </button>
                                     @if(request('search_campanha'))
-                                        <a href="{{ route('admin.cadastros.index') }}#campanhas" class="btn btn-sm btn-danger">
+                                        <a href="{{ route('admin.cadastros.index', ['tab' => 'campanhas']) }}" class="btn btn-sm btn-danger">
                                             <i class="fas fa-times"></i>
                                         </a>
                                     @endif
@@ -188,16 +210,36 @@
                                     </thead>
                                     <tbody id="campanhasTableBody">
                                         @forelse($tipoCampanhas as $tipoCampanha)
-                                            <tr>
-                                                <td>{{ $tipoCampanha->nome }}</td>
-                                                <td class="text-end">
-                                                    <form action="{{ route('admin.tipos-campanha.destroy', $tipoCampanha->id) }}" method="POST" class="d-inline">
+                                            <tr data-campanha-id="{{ $tipoCampanha->id }}">
+                                                <td>
+                                                    <span class="campanha-nome">{{ $tipoCampanha->nome }}</span>
+                                                    <form action="{{ route('admin.tipos-campanha.update', $tipoCampanha->id) }}" method="POST" class="d-none form-edit-campanha">
                                                         @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Tem certeza que deseja excluir esta campanha?')">
-                                                            Excluir
-                                                        </button>
+                                                        @method('PUT')
+                                                        <div class="d-flex gap-2 align-items-center">
+                                                            <input type="text" name="nome" class="form-control form-control-sm" value="{{ $tipoCampanha->nome }}" required>
+                                                            <button type="submit" class="btn btn-sm btn-success">
+                                                                <i class="fas fa-check"></i>
+                                                            </button>
+                                                            <button type="button" class="btn btn-sm btn-secondary btn-cancelar-edit">
+                                                                <i class="fas fa-times"></i>
+                                                            </button>
+                                                        </div>
                                                     </form>
+                                                </td>
+                                                <td class="text-end">
+                                                    <div class="acoes-normais">
+                                                        <button type="button" class="btn-sm btn-edit-item btn-editar-campanha" title="Editar">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                        <form action="{{ route('admin.tipos-campanha.destroy', $tipoCampanha->id) }}" method="POST" class="d-inline form-delete">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button type="button" class="btn-sm btn-excluir-item btn-delete" title="Excluir">
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         @empty

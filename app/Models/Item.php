@@ -12,11 +12,13 @@ class Item extends Model
         'estoque_minimo',
         'validade',
         'condicao',
+        'tamanho',
     ];
 
     protected $casts = [
         'validade' => 'boolean',
         'condicao' => 'boolean',
+        'tamanho' => 'boolean',
     ];
 
     /**

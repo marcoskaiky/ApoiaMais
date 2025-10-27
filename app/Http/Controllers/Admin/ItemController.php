@@ -16,6 +16,7 @@ class ItemController extends Controller
     {
         $categorias = Categoria::orderBy('nome')->get();
         $searchItem = $request->input('search_item');
+        $tab = $request->input('tab');
 
         $itens = Item::with('categoria')
             ->when($searchItem, function($query, $search) {
@@ -26,7 +27,10 @@ class ItemController extends Controller
             })
             ->orderBy('nome')
             ->paginate(10)
-            ->appends(['search_item' => $searchItem]);
+            ->appends([
+                'search_item' => $searchItem,
+                'tab' => $tab
+            ]);
 
         return view('admin.pages.item', compact('categorias', 'itens'));
     }
@@ -42,11 +46,13 @@ class ItemController extends Controller
             'estoque_minimo' => 'required|integer|min:0',
             'validade' => 'nullable|boolean',
             'condicao' => 'nullable|boolean',
+            'tamanho' => 'nullable|boolean',
         ]);
 
         // Converter checkboxes para boolean
         $validated['validade'] = $request->has('validade') ? true : false;
         $validated['condicao'] = $request->has('condicao') ? true : false;
+        $validated['tamanho'] = $request->has('tamanho') ? true : false;
 
         Item::create($validated);
 
@@ -85,11 +91,13 @@ class ItemController extends Controller
             'estoque_minimo' => 'required|integer|min:0',
             'validade' => 'nullable|boolean',
             'condicao' => 'nullable|boolean',
+            'tamanho' => 'nullable|boolean',
         ]);
 
         // Converter checkboxes para boolean
         $validated['validade'] = $request->has('validade') ? true : false;
         $validated['condicao'] = $request->has('condicao') ? true : false;
+        $validated['tamanho'] = $request->has('tamanho') ? true : false;
 
         $item->update($validated);
 
