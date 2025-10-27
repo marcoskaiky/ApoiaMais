@@ -171,6 +171,21 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
+                                <div class="mb-3">
+                                    <label for="meta" class="form-label">Meta (Quantidade de Itens)</label>
+                                    <input type="number"
+                                           class="form-control @error('meta') is-invalid @enderror"
+                                           id="meta"
+                                           name="meta"
+                                           placeholder="Ex: 1000"
+                                           value="{{ old('meta') }}"
+                                           step="0.01"
+                                           min="0">
+                                    @error('meta')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                    <small class="text-muted">Deixe em branco se não houver meta definida</small>
+                                </div>
                                 <button type="submit" class="btn btn-primary w-100">
                                     <i class="bi bi-plus-circle"></i> Salvar Campanha
                                 </button>
@@ -205,6 +220,7 @@
                                     <thead>
                                         <tr>
                                             <th>CAMPANHA</th>
+                                            <th style="width: 30%;">PROGRESSO DA META</th>
                                             <th class="text-end">AÇÕES</th>
                                         </tr>
                                     </thead>
@@ -217,15 +233,43 @@
                                                         @csrf
                                                         @method('PUT')
                                                         <div class="d-flex gap-2 align-items-center">
-                                                            <input type="text" name="nome" class="form-control form-control-sm" value="{{ $tipoCampanha->nome }}" required>
-                                                            <button type="submit" class="btn btn-sm btn-success">
-                                                                <i class="fas fa-check"></i>
-                                                            </button>
-                                                            <button type="button" class="btn btn-sm btn-secondary btn-cancelar-edit">
-                                                                <i class="fas fa-times"></i>
-                                                            </button>
+                                                            <div class="flex-grow-1">
+                                                                <input type="text" name="nome" class="form-control form-control-sm mb-2" value="{{ $tipoCampanha->nome }}" placeholder="Nome da campanha" required>
+                                                                <input type="number" name="meta" class="form-control form-control-sm" value="{{ $tipoCampanha->meta }}" placeholder="Meta (opcional)" step="0.01" min="0">
+                                                            </div>
+                                                            <div class="d-flex flex-column gap-1">
+                                                                <button type="submit" class="btn btn-sm btn-success">
+                                                                    <i class="fas fa-check"></i>
+                                                                </button>
+                                                                <button type="button" class="btn btn-sm btn-secondary btn-cancelar-edit">
+                                                                    <i class="fas fa-times"></i>
+                                                                </button>
+                                                            </div>
                                                         </div>
                                                     </form>
+                                                </td>
+                                                <td>
+                                                    @if($tipoCampanha->meta)
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <div class="flex-grow-1">
+                                                                <div class="progress" style="height: 25px;">
+                                                                    <div class="progress-bar bg-success"
+                                                                         role="progressbar"
+                                                                         style="width: {{ $tipoCampanha->porcentagem_meta }}%"
+                                                                         aria-valuenow="{{ $tipoCampanha->porcentagem_meta }}"
+                                                                         aria-valuemin="0"
+                                                                         aria-valuemax="100">
+                                                                        {{ number_format($tipoCampanha->porcentagem_meta, 1) }}%
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <small class="text-muted text-nowrap">
+                                                                {{ number_format($tipoCampanha->total_arrecadado, 0) }} / {{ number_format($tipoCampanha->meta, 0) }}
+                                                            </small>
+                                                        </div>
+                                                    @else
+                                                        <span class="text-muted">Sem meta definida</span>
+                                                    @endif
                                                 </td>
                                                 <td class="text-end">
                                                     <div class="acoes-normais">
@@ -244,7 +288,7 @@
                                             </tr>
                                         @empty
                                             <tr>
-                                                <td colspan="2" class="text-center text-muted">Nenhuma campanha cadastrada</td>
+                                                <td colspan="3" class="text-center text-muted">Nenhuma campanha cadastrada</td>
                                             </tr>
                                         @endforelse
                                     </tbody>

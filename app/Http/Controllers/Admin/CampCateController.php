@@ -69,9 +69,13 @@ class CampCateController extends Controller
     {
         $request->validate([
             'nome_tipo_campanha' => 'required|string|max:255',
+            'meta' => 'nullable|numeric|min:0',
         ]);
 
-        TipoCampanha::create(['nome' => $request->nome_tipo_campanha]);
+        TipoCampanha::create([
+            'nome' => $request->nome_tipo_campanha,
+            'meta' => $request->meta,
+        ]);
 
         return redirect()->route('admin.cadastros.index')
             ->with('success', 'Tipo de campanha criado com sucesso!');
@@ -81,10 +85,14 @@ class CampCateController extends Controller
     {
         $request->validate([
             'nome' => 'required|string|max:255',
+            'meta' => 'nullable|numeric|min:0',
         ]);
 
         $tipoCampanha = TipoCampanha::findOrFail($id);
-        $tipoCampanha->update(['nome' => $request->nome]);
+        $tipoCampanha->update([
+            'nome' => $request->nome,
+            'meta' => $request->meta,
+        ]);
 
         return redirect()->route('admin.cadastros.index', ['tab' => 'campanhas'])
             ->with('success', 'Campanha atualizada com sucesso!');

@@ -1,18 +1,6 @@
 @extends('admin.dashboard')
 
 @push('scripts')
-    @php
-        $itensFormatados = $itens->map(function($item) {
-            return [
-                'id' => $item->id,
-                'nome' => $item->nome,
-                'categoria' => $item->categoria->nome ?? 'Sem categoria',
-                'validade' => (bool) $item->validade,
-                'condicao' => (bool) $item->condicao,
-                'tamanho' => (bool) $item->tamanho
-            ];
-        });
-    @endphp
     <script>
         // Passar dados dos itens para o JavaScript
         window.itensDisponiveis = @json($itensFormatados);
