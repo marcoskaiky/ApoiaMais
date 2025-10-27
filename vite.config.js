@@ -8,7 +8,9 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
                 'resources/js/item-management.js',
-                'resources/js/campanhas-categorias.js'
+                'resources/js/campanhas-categorias.js',
+                'resources/js/receber-doacao.js',
+                'resources/js/sweet-delete.js'
             ],
             refresh: true,
         }),

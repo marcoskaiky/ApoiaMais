@@ -160,7 +160,7 @@
             <!-- Aba Instituições -->
             <div class="tab-pane fade" id="instituicoes" role="tabpanel" aria-labelledby="instituicoes-tab">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-success text-white">
+                    <div class="card-header bg-primary text-white">
                         <h5 class="mb-0">Cadastro de Instituições</h5>
                     </div>
                     <div class="card-body">
@@ -258,7 +258,7 @@
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-success">Cadastrar Instituição</button>
+                            <button type="submit" class="btn btn-primary">Cadastrar Instituição</button>
                         </form>
                     </div>
                 </div>

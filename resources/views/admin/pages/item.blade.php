@@ -1,7 +1,7 @@
 @extends('admin.dashboard')
 
 @push('scripts')
-    @vite(['resources/js/item-management.js'])
+    @vite(['resources/js/item-management.js', 'resources/js/sweet-delete.js'])
 @endpush
 
 @section('content')
@@ -73,6 +73,12 @@
                                         Condição
                                     </label>
                                 </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="tamanho" id="tamanho" value="1">
+                                    <label class="form-check-label" for="tamanho">
+                                        Tamanho
+                                    </label>
+                                </div>
                             </div>
                         </div>
 
@@ -108,12 +114,13 @@
                     <h5 class="mb-0">Itens Cadastrados</h5>
                     <div class="d-flex gap-2">
                         <form method="GET" action="{{ route('admin.item.index') }}" class="d-flex gap-2">
+                            <input type="hidden" name="tab" value="lista">
                             <input type="text" name="search_item" class="form-control form-control-sm" placeholder="Buscar itens..." value="{{ request('search_item') }}" style="width: 200px;">
                             <button type="submit" class="btn-sm btn-buscar">
                                 <i class="fas fa-search"></i>
                             </button>
                             @if(request('search_item'))
-                                <a href="{{ route('admin.item.index') }}" class="btn btn-sm btn-danger">
+                                <a href="{{ route('admin.item.index', ['tab' => 'lista']) }}" class="btn btn-sm btn-danger">
                                     <i class="fas fa-times"></i>
                                 </a>
                             @endif
@@ -130,6 +137,7 @@
                                     <th>Estoque Mínimo</th>
                                     <th>Validade</th>
                                     <th>Condição</th>
+                                    <th>Tamanho</th>
                                     <th class="text-center">Ações</th>
                                 </tr>
                             </thead>
@@ -153,6 +161,13 @@
                                             <span class="badge bg-secondary">Não</span>
                                         @endif
                                     </td>
+                                    <td>
+                                        @if($item->tamanho)
+                                            <span class="badge bg-success">Sim</span>
+                                        @else
+                                            <span class="badge bg-secondary">Não</span>
+                                        @endif
+                                    </td>
                                     <td class="text-center">
                                         <button type="button" class="btn-sm btn-edit-item"
                                                 data-id="{{ $item->id }}"
@@ -161,13 +176,14 @@
                                                 data-estoque="{{ $item->estoque_minimo }}"
                                                 data-validade="{{ $item->validade ? '1' : '0' }}"
                                                 data-condicao="{{ $item->condicao ? '1' : '0' }}"
+                                                data-tamanho="{{ $item->tamanho ? '1' : '0' }}"
                                                 title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </button>
-                                        <form action="{{ route('admin.item.destroy', $item->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Tem certeza que deseja excluir este item?');">
+                                        <form action="{{ route('admin.item.destroy', $item->id) }}" method="POST" class="d-inline form-delete">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn-sm btn-excluir-item" title="Excluir">
+                                            <button type="submit" class="btn-sm btn-excluir-item btn-delete" title="Excluir">
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </form>
@@ -175,7 +191,7 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="6" class="text-center text-muted">Nenhum item cadastrado.</td>
+                                    <td colspan="7" class="text-center text-muted">Nenhum item cadastrado.</td>
                                 </tr>
                                 @endforelse
                             </tbody>
