@@ -85,7 +85,7 @@ class ReceberDoacaoController extends Controller
                 'validade' => $itemData['validade'] ?? null,
                 'tamanho_valor' => $itemData['tamanho_valor'] ?? null,
                 'tamanho_unidade' => $itemData['tamanho_unidade'] ?? null,
-                'tamanho_texto' => $itemData['tamanho_texto'] ?? null,
+                'tamanho_texto' => isset($itemData['tamanho_texto']) ? strtoupper($itemData['tamanho_texto']) : null,
                 'condicao' => $itemData['condicao'] ?? null,
             ];
 
@@ -142,7 +142,7 @@ class ReceberDoacaoController extends Controller
                     'validade' => $itemData['validade'] ?? null,
                     'tamanho_valor' => $itemData['tamanho_valor'] ?? null,
                     'tamanho_unidade' => $itemData['tamanho_unidade'] ?? null,
-                    'tamanho_texto' => $itemData['tamanho_texto'] ?? null,
+                    'tamanho_texto' => isset($itemData['tamanho_texto']) ? strtoupper($itemData['tamanho_texto']) : null,
                     'condicao' => $itemData['condicao'] ?? null,
                 ]);
             }
