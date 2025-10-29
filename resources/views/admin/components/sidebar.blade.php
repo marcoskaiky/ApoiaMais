@@ -29,6 +29,10 @@
                 <x-heroicon-o-chevron-down class="nav-arrow" />
             </button>
             <div class="nav-submenu" id="cadastros-submenu">
+                <a href="{{ route('admin.users.index') }}" class="nav-subitem {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
+                    <x-heroicon-o-users class="nav-icon" />
+                    <span>Usuários</span>
+                </a>
                 <a href="{{ route('admin.doadores.index') }}" class="nav-subitem {{ request()->routeIs('admin.doadores.*') ? 'active' : '' }}">
                     <x-heroicon-o-currency-dollar class="nav-icon" />
                     <span>Doador / Instituição</span>
@@ -83,10 +87,6 @@
                     <x-heroicon-o-chart-bar class="nav-icon" />
                     <span>Relatórios</span>
                 </a>
-                <a href="#" class="nav-subitem">
-                    <x-heroicon-o-users class="nav-icon" />
-                    <span>Usuários</span>
-                </a>
             </div>
         </div>
 
@@ -140,7 +140,7 @@
 
         // Toggle dos submenus
         const navToggles = document.querySelectorAll('.nav-toggle');
-        
+
         // Carregar estado dos menus do localStorage
         const openMenus = JSON.parse(localStorage.getItem('openMenus') || '[]');
         openMenus.forEach(menuId => {
@@ -159,7 +159,7 @@
             if (submenu && toggle) {
                 submenu.classList.add('show');
                 toggle.classList.add('active');
-                
+
                 // Salvar no localStorage
                 const menuId = toggle.getAttribute('data-toggle');
                 if (menuId && !openMenus.includes(menuId)) {
@@ -174,13 +174,13 @@
                 e.preventDefault();
                 const menuId = this.getAttribute('data-toggle');
                 const submenu = document.getElementById(menuId + '-submenu');
-                
+
                 if (submenu) {
                     const isOpen = submenu.classList.contains('show');
-                    
+
                     submenu.classList.toggle('show');
                     this.classList.toggle('active');
-                    
+
                     // Salvar estado no localStorage
                     let openMenus = JSON.parse(localStorage.getItem('openMenus') || '[]');
                     if (isOpen) {

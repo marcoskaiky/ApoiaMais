@@ -1,0 +1,420 @@
+/* ===================================
+   ESTILOS DA SEÇÃO USUÁRIOS
+   =================================== */
+
+/* Wrapper de conteúdo */
+.usuarios-wrapper {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Cabeçalho da página */
+.usuarios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.usuarios-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.usuarios-header .btn-primary {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+    padding: 0.625rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.usuarios-header .btn-primary:hover {
+    background-color: #0b6fd4;
+    border-color: #0b6fd4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(13, 127, 242, 0.3);
+}
+
+/* Descrição da página */
+.usuarios-description {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Barra de busca */
+.usuarios-search {
+    margin-bottom: 2rem;
+}
+
+.usuarios-search .input-group {
+    max-width: 500px;
+}
+
+.usuarios-search .form-control {
+    border-radius: 0.375rem 0 0 0.375rem;
+    padding: 0.625rem 1rem;
+    border: 1px solid #dee2e6;
+}
+
+.usuarios-search .form-control:focus {
+    border-color: #0d7ff2;
+    box-shadow: 0 0 0 0.2rem rgba(13, 127, 242, 0.15);
+}
+
+.usuarios-search .btn-search {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+    color: white;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0 0.375rem 0.375rem 0;
+}
+
+.usuarios-search .btn-search:hover {
+    background-color: #0b6fd4;
+    border-color: #0b6fd4;
+}
+
+/* Card principal */
+.usuarios-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+}
+
+.usuarios-card .card-header {
+    background-color: #0d7ff2;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-bottom: none;
+}
+
+.usuarios-card .card-header h5 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.usuarios-card .card-body {
+    padding: 0;
+}
+
+/* Tabela de usuários */
+.usuarios-table {
+    width: 100%;
+    margin: 0;
+}
+
+.usuarios-table thead {
+    background-color: #f8f9fa;
+}
+
+.usuarios-table thead th {
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.usuarios-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.usuarios-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.usuarios-table tbody td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Badges de role */
+.badge-role {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.badge-role.admin {
+    background-color: rgba(13, 127, 242, 0.15);
+    color: #0d7ff2;
+}
+
+.badge-role.gerente {
+    background-color: rgba(23, 162, 184, 0.15);
+    color: #17a2b8;
+}
+
+.badge-role.operador {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #f59e0b;
+}
+
+/* Badges de status */
+.badge-status {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    text-transform: uppercase;
+}
+
+.badge-status.ativo {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.badge-status.inativo {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+/* Ações da tabela */
+.usuarios-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.usuarios-actions .btn-sm {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.usuarios-actions .btn-edit {
+    color: #0d7ff2;
+    border-color: #0d7ff2;
+}
+
+.usuarios-actions .btn-edit:hover {
+    background-color: #0d7ff2;
+    color: white;
+}
+
+.usuarios-actions .btn-delete {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+.usuarios-actions .btn-delete:hover {
+    background-color: #dc3545;
+    color: white;
+}
+
+/* Formulário de usuários */
+.usuarios-form {
+    padding: 2rem;
+}
+
+.usuarios-form .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.usuarios-form .form-label .required {
+    color: #dc3545;
+    margin-left: 0.25rem;
+}
+
+.usuarios-form .form-control,
+.usuarios-form .form-select {
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    font-size: 0.9375rem;
+}
+
+.usuarios-form .form-control:focus,
+.usuarios-form .form-select:focus {
+    border-color: #0d7ff2;
+    box-shadow: 0 0 0 0.2rem rgba(13, 127, 242, 0.15);
+}
+
+.usuarios-form .invalid-feedback {
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.usuarios-form .form-text {
+    font-size: 0.8125rem;
+    color: #6c757d;
+}
+
+/* Botões do formulário */
+.usuarios-form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.usuarios-form-actions .btn {
+    padding: 0.625rem 2rem;
+    font-weight: 500;
+}
+
+.usuarios-form-actions .btn-primary {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+}
+
+.usuarios-form-actions .btn-primary:hover {
+    background-color: #0b6fd4;
+    border-color: #0b6fd4;
+}
+
+.usuarios-form-actions .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.usuarios-form-actions .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Botão voltar */
+.btn-back {
+    color: #0d7ff2;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.btn-back:hover {
+    color: #0b6fd4;
+}
+
+.btn-back i {
+    font-size: 1rem;
+}
+
+/* Mensagem de lista vazia */
+.usuarios-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6c757d;
+}
+
+.usuarios-empty i {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.usuarios-empty p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Paginação */
+.usuarios-pagination {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.usuarios-pagination .pagination {
+    margin: 0;
+}
+
+.usuarios-pagination .page-link {
+    color: #0d7ff2;
+    border-color: #dee2e6;
+}
+
+.usuarios-pagination .page-link:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #0b6fd4;
+}
+
+.usuarios-pagination .page-item.active .page-link {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+    .usuarios-wrapper {
+        padding: 1rem;
+    }
+
+    .usuarios-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .usuarios-header .btn-primary {
+        width: 100%;
+    }
+
+    .usuarios-search .input-group {
+        max-width: 100%;
+    }
+
+    .usuarios-table {
+        font-size: 0.875rem;
+    }
+
+    .usuarios-table thead th,
+    .usuarios-table tbody td {
+        padding: 0.75rem 1rem;
+    }
+
+    .usuarios-actions {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .usuarios-actions .btn-sm {
+        width: 100%;
+    }
+
+    .usuarios-form {
+        padding: 1rem;
+    }
+
+    .usuarios-form-actions {
+        flex-direction: column;
+    }
+
+    .usuarios-form-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .usuarios-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .usuarios-header h1 {
+        font-size: 1.5rem;
+    }
+}
