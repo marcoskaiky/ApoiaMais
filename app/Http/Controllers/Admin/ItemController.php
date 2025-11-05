@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Item;
 use App\Models\Categoria;
+use App\Models\Auditoria;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -19,9 +20,9 @@ class ItemController extends Controller
         $tab = $request->input('tab');
 
         $itens = Item::with('categoria')
-            ->when($searchItem, function($query, $search) {
+            ->when($searchItem, function ($query, $search) {
                 return $query->where('nome', 'like', '%' . $search . '%')
-                    ->orWhereHas('categoria', function($q) use ($search) {
+                    ->orWhereHas('categoria', function ($q) use ($search) {
                         $q->where('nome', 'like', '%' . $search . '%');
                     });
             })
@@ -55,6 +56,12 @@ class ItemController extends Controller
         $validated['tamanho'] = $request->has('tamanho') ? true : false;
 
         Item::create($validated);
+
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Cadastro de Item',
+            "Cadastrou o item '{$validated['nome']}' na categoria ID {$validated['categoria_id']}"
+        );
 
         return redirect()->route('admin.item.index')
             ->with('success', 'Item cadastrado com sucesso!');
@@ -101,6 +108,12 @@ class ItemController extends Controller
 
         $item->update($validated);
 
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Edição de Item',
+            "Editou o item '{$validated['nome']}' (ID: {$id})"
+        );
+
         return redirect()->route('admin.item.index', ['tab' => 'lista'])
             ->with('success', 'Item atualizado com sucesso!');
     }
@@ -111,7 +124,14 @@ class ItemController extends Controller
     public function destroy(string $id)
     {
         $item = Item::findOrFail($id);
+        $nomeItem = $item->nome;
         $item->delete();
+
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Exclusão de Item',
+            "Excluiu o item '{$nomeItem}' (ID: {$id})"
+        );
 
         return redirect()->route('admin.item.index', ['tab' => 'lista'])
             ->with('success', 'Item excluído com sucesso!');

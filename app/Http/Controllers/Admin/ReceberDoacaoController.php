@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\TipoCampanha;
 use App\Models\ReceberDoacao;
 use App\Models\ReceberDoacaoItem;
+use App\Models\Auditoria;
 use Illuminate\Http\Request;
 
 class ReceberDoacaoController extends Controller
@@ -28,7 +29,7 @@ class ReceberDoacaoController extends Controller
         $campanhas = TipoCampanha::orderBy('nome')->get();
 
         // Formatar itens para JavaScript
-        $itensFormatados = $itens->map(function($item) {
+        $itensFormatados = $itens->map(function ($item) {
             return [
                 'id' => $item->id,
                 'nome' => $item->nome,
@@ -92,6 +93,14 @@ class ReceberDoacaoController extends Controller
             ReceberDoacaoItem::create($itemPayload);
         }
 
+        // Registrar na auditoria
+        $doador = Doador::find($request->doador_id);
+        $totalItens = collect($request->input('itens'))->sum('quantidade');
+        Auditoria::registrar(
+            'Entrada de Item',
+            "Registrou doação de {$totalItens} itens do doador '{$doador->nome}'"
+        );
+
         return redirect()->route('admin.receber-doacaos.index', ['tab' => 'historico'])->with('success', 'Doação registrada com sucesso.');
     }
 
@@ -148,8 +157,14 @@ class ReceberDoacaoController extends Controller
             }
         }
 
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Edição de Doação',
+            "Editou a doação ID {$receberDoacao->id}"
+        );
+
         return redirect()->route('admin.receber-doacaos.index', ['tab' => 'historico'])
-                         ->with('success', 'Doação atualizada com sucesso.');
+            ->with('success', 'Doação atualizada com sucesso.');
     }
 
     /**
@@ -157,7 +172,15 @@ class ReceberDoacaoController extends Controller
      */
     public function destroy(ReceberDoacao $receberDoacao)
     {
+        $doacaoId = $receberDoacao->id;
         $receberDoacao->delete();
+
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Exclusão de Doação',
+            "Excluiu a doação ID {$doacaoId}"
+        );
+
         return redirect()->route('admin.receber-doacaos.index', ['tab' => 'historico'])->with('success', 'Doação removida.');
     }
 }

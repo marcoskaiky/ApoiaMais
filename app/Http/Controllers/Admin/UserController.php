@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Auditoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,12 @@ class UserController extends Controller
 
         User::create($validated);
 
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Cadastro de Usuário',
+            "Cadastrou o usuário '{$validated['name']}' ({$validated['email']}) com o perfil '{$validated['role']}'"
+        );
+
         return redirect()->route('admin.users.index')
             ->with('success', 'Usuário criado com sucesso!');
     }
@@ -99,6 +106,12 @@ class UserController extends Controller
 
         $user->update($validated);
 
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Edição de Usuário',
+            "Editou o usuário '{$validated['name']}' (ID: {$user->id})"
+        );
+
         return redirect()->route('admin.users.index')
             ->with('success', 'Usuário atualizado com sucesso!');
     }
@@ -114,7 +127,14 @@ class UserController extends Controller
                 ->with('error', 'Você não pode remover seu próprio usuário!');
         }
 
+        $nomeUsuario = $user->name;
         $user->delete();
+
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Exclusão de Usuário',
+            "Excluiu o usuário '{$nomeUsuario}' (ID: {$user->id})"
+        );
 
         return redirect()->route('admin.users.index')
             ->with('success', 'Usuário removido com sucesso!');

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\AuditoriaController as AdminAuditoriaController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\ProfileController as AdminProfileController;
 use App\Http\Controllers\Admin\ItemController as AdminItemController;
@@ -34,6 +35,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('/item', AdminItemController::class);
     Route::resource('/estoque', AdminEstoqueController::class);
     Route::resource('/users', AdminUserController::class);
+    Route::resource('/auditoria', AdminAuditoriaController::class);
     Route::resource('/relatorio', AdminRelatorioController::class);
     Route::put('/profile/password/update', [AdminProfileController::class, 'updatePassword'])->name('profile.password.update');
     // Doadores e Instituições

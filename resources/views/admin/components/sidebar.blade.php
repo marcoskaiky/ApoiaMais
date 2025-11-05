@@ -89,6 +89,10 @@
                 </a>
             </div>
         </div>
+        <a href="{{ route('admin.auditoria.index') }}" class="nav-item {{ request()->routeIs('admin.auditoria.*') ? 'active' : '' }}">
+            <x-hugeicons-help-square class="nav-icon" />
+            <span>Auditoria - Logs</span>
+        </a>
 
     </nav>
 
