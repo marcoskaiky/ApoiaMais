@@ -1,0 +1,327 @@
+/* ===================================
+   ESTILOS DA SEÇÃO AUDITORIA
+   =================================== */
+
+/* Wrapper de conteúdo */
+.auditoria-wrapper {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Cabeçalho da página */
+.auditoria-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.auditoria-header h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+/* Descrição da página */
+.auditoria-description {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+/* Filtros */
+.auditoria-filtros {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+}
+
+.auditoria-filtros .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.auditoria-filtros .form-control,
+.auditoria-filtros .form-select {
+    padding: 0.625rem 1rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+    font-size: 0.9375rem;
+    transition: border-color 0.15s ease-in-out;
+}
+
+.auditoria-filtros .form-control:focus,
+.auditoria-filtros .form-select:focus {
+    border-color: #0d7ff2;
+    box-shadow: 0 0 0 0.2rem rgba(13, 127, 242, 0.15);
+}
+
+.auditoria-filtros .input-group-text {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    color: #6c757d;
+}
+
+.auditoria-filtros .btn-primary {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+    padding: 0.625rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.auditoria-filtros .btn-primary:hover {
+    background-color: #0b6fd4;
+    border-color: #0b6fd4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(13, 127, 242, 0.3);
+}
+
+/* Card principal */
+.auditoria-card {
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    overflow: hidden;
+}
+
+.auditoria-card .card-header {
+    background-color: #0d7ff2;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-bottom: none;
+}
+
+.auditoria-card .card-header h5 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.auditoria-card .card-header .badge {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.auditoria-card .card-body {
+    padding: 0;
+}
+
+/* Tabela de auditoria */
+.auditoria-table {
+    width: 100%;
+    margin: 0;
+}
+
+.auditoria-table thead {
+    background-color: #f8f9fa;
+}
+
+.auditoria-table thead th {
+    padding: 1rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #495057;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.auditoria-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.auditoria-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.auditoria-table tbody td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    color: #495057;
+    font-size: 0.9375rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Badge de Tipo de Ação */
+.badge-acao {
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.375rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.badge-acao.entrada {
+    background-color: rgba(40, 167, 69, 0.15);
+    color: #28a745;
+}
+
+.badge-acao.saida {
+    background-color: rgba(255, 193, 7, 0.15);
+    color: #f59e0b;
+}
+
+.badge-acao.criacao,
+.badge-acao.cadastro {
+    background-color: rgba(23, 162, 184, 0.15);
+    color: #17a2b8;
+}
+
+.badge-acao.edicao {
+    background-color: rgba(13, 127, 242, 0.15);
+    color: #0d7ff2;
+}
+
+.badge-acao.exclusao {
+    background-color: rgba(220, 53, 69, 0.15);
+    color: #dc3545;
+}
+
+.badge-acao.login,
+.badge-acao.logout {
+    background-color: rgba(108, 117, 125, 0.15);
+    color: #6c757d;
+}
+
+.badge-acao.alteracao {
+    background-color: rgba(52, 58, 64, 0.15);
+    color: #343a40;
+}
+
+/* Usuário */
+.auditoria-usuario {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.auditoria-usuario i {
+    color: #0d7ff2;
+}
+
+.auditoria-usuario strong {
+    color: #495057;
+    font-weight: 600;
+}
+
+/* Data */
+.auditoria-data {
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+
+.auditoria-data i {
+    margin-right: 0.25rem;
+}
+
+/* Detalhes */
+.auditoria-detalhes {
+    color: #495057;
+    line-height: 1.5;
+}
+
+/* Mensagem de lista vazia */
+.auditoria-empty {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6c757d;
+}
+
+.auditoria-empty i {
+    font-size: 3rem;
+    color: #dee2e6;
+    margin-bottom: 1rem;
+}
+
+.auditoria-empty p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Paginação */
+.auditoria-pagination {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.auditoria-pagination .pagination {
+    margin: 0;
+}
+
+.auditoria-pagination .page-link {
+    color: #0d7ff2;
+    border-color: #dee2e6;
+}
+
+.auditoria-pagination .page-link:hover {
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    color: #0b6fd4;
+}
+
+.auditoria-pagination .page-item.active .page-link {
+    background-color: #0d7ff2;
+    border-color: #0d7ff2;
+}
+
+.auditoria-pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: white;
+    border-color: #dee2e6;
+}
+
+/* Responsividade */
+@media (max-width: 991px) {
+    .auditoria-wrapper {
+        padding: 1rem;
+    }
+
+    .auditoria-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .auditoria-filtros {
+        padding: 1rem;
+    }
+
+    .auditoria-table {
+        font-size: 0.875rem;
+    }
+
+    .auditoria-table thead th,
+    .auditoria-table tbody td {
+        padding: 0.75rem 1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .auditoria-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .auditoria-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .badge-acao {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
