@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Auditoria;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +29,12 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Login',
+            'Realizou login no sistema'
+        );
+
         // Redirecionar admin para o dashboard admin
         if (auth()->user()->isAdmin()) {
             return redirect()->intended(route('admin.dashboard', absolute: false));
@@ -41,6 +48,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        // Registrar na auditoria antes de fazer logout
+        Auditoria::registrar(
+            'Logout',
+            'Realizou logout do sistema'
+        );
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

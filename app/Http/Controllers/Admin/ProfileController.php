@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Auditoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +19,7 @@ class ProfileController extends Controller
         return view('admin.pages.profile');
     }
 
-        /**
+    /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
@@ -39,6 +40,12 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->save();
 
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Edição de Perfil',
+            "Atualizou seu perfil (Nome: {$request->name})"
+        );
+
         return redirect()->route('admin.profile.index')->with('success', 'Perfil atualizado com sucesso!');
     }
 
@@ -55,6 +62,12 @@ class ProfileController extends Controller
         $user = Auth::user();
         $user->password = Hash::make($request->password);
         $user->save();
+
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Alteração de Senha',
+            'Alterou sua senha'
+        );
 
         return redirect()->route('admin.profile.index')->with('success', 'Senha alterada com sucesso!');
     }

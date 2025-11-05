@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doador;
+use App\Models\Auditoria;
 use Illuminate\Http\Request;
 
 class DoadorController extends Controller
@@ -50,6 +51,12 @@ class DoadorController extends Controller
             'uf' => $validated['uf_doador'],
             'complemento' => $validated['complemento_doador'] ?? null,
         ]);
+
+        // Registrar na auditoria
+        Auditoria::registrar(
+            'Cadastro de Doador',
+            "Cadastrou o doador '{$validated['nome_doador']}' ({$validated['tipo_doador']})"
+        );
 
         return redirect()->route('admin.doadores.index')
             ->with('success', 'Doador cadastrado com sucesso!');
