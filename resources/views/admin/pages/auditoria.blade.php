@@ -69,7 +69,7 @@
 
     <!-- Tabela de Auditoria -->
     <div class="card auditoria-card shadow-sm">
-        <div class="card-header">
+        <div class="card-header d-flex inline-flex justify-between align-items-center">
             <h5 class="mb-0">Registro de Atividades</h5>
             <span class="badge">{{ $auditorias->total() }} registros</span>
         </div>
@@ -80,9 +80,9 @@
                     <thead>
                         <tr>
                             <th style="width: 15%;">USUÁRIO</th>
-                            <th style="width: 15%;">DATA</th>
+                            <th style="width: 20%;">DATA</th>
                             <th style="width: 20%;">TIPO DE AÇÃO</th>
-                            <th style="width: 50%;">DETALHES</th>
+                            <th style="width: 35%;">DETALHES</th>
                         </tr>
                     </thead>
                     <tbody>

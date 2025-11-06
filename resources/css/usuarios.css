@@ -260,13 +260,16 @@
 
 /* Botões do formulário */
 .usuarios-form-actions {
-    display: flex;
+
     gap: 1rem;
     margin-top: 2rem;
     padding-top: 2rem;
     border-top: 1px solid #e9ecef;
 }
 
+.btn-secondary {
+    margin-top: 10px;
+}
 .usuarios-form-actions .btn {
     padding: 0.625rem 2rem;
     font-weight: 500;
