@@ -29,22 +29,37 @@
                 <x-heroicon-o-chevron-down class="nav-arrow" />
             </button>
             <div class="nav-submenu" id="cadastros-submenu">
+                {{-- Usuários - apenas Admin --}}
+                @can('manage-users')
                 <a href="{{ route('admin.users.index') }}" class="nav-subitem {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
                     <x-heroicon-o-users class="nav-icon" />
                     <span>Usuários</span>
                 </a>
+                @endcan
+
+                {{-- Doador / Instituição - Admin e Gerente --}}
+                @can('manage-doadores')
                 <a href="{{ route('admin.doadores.index') }}" class="nav-subitem {{ request()->routeIs('admin.doadores.*') ? 'active' : '' }}">
                     <x-heroicon-o-currency-dollar class="nav-icon" />
                     <span>Doador / Instituição</span>
                 </a>
+                @endcan
+
+                {{-- Categorias / Campanhas - Admin e Gerente --}}
+                @can('manage-categories')
                 <a href="{{ route('admin.cadastros.index') }}" class="nav-subitem {{ request()->routeIs('admin.cadastros.*') ? 'active' : '' }}">
                     <x-heroicon-o-briefcase class="nav-icon" />
                     <span>Categorias / Campanhas</span>
                 </a>
+                @endcan
+
+                {{-- Itens - Admin e Gerente --}}
+                @can('manage-items')
                 <a href="{{ route('admin.item.index') }}" class="nav-subitem {{ request()->routeIs('admin.item.*') ? 'active' : '' }}">
                     <x-heroicon-o-inbox-stack class="nav-icon" />
                     <span>Itens</span>
                 </a>
+                @endcan
             </div>
         </div>
 
@@ -58,14 +73,21 @@
                 <x-heroicon-o-chevron-down class="nav-arrow" />
             </button>
             <div class="nav-submenu" id="doacoes-submenu">
+                {{-- Receber Doação - todos podem --}}
+                @can('receive-donations')
                 <a href="{{ route('admin.receber-doacaos.index') }}" class="nav-subitem {{ request()->routeIs('admin.receber-doacaos.*') ? 'active' : '' }}">
                     <x-heroicon-o-arrow-down-circle class="nav-icon" />
                     <span>Receber Doação</span>
                 </a>
+                @endcan
+
+                {{-- Enviar Doação - Admin e Gerente --}}
+                @can('send-donations')
                 <a href="#" class="nav-subitem">
                     <x-heroicon-o-arrow-up-circle class="nav-icon" />
                     <span>Enviar Doação</span>
                 </a>
+                @endcan
             </div>
         </div>
 
@@ -79,20 +101,31 @@
                 <x-heroicon-o-chevron-down class="nav-arrow" />
             </button>
             <div class="nav-submenu" id="relatorios-submenu">
+                {{-- Estoque - todos podem visualizar --}}
+                @can('view-stock')
                 <a href="{{ route('admin.estoque.index') }}" class="nav-subitem {{ request()->routeIs('admin.estoque.*') ? 'active' : '' }}">
                     <x-vaadin-stock class="nav-icon" />
                     <span>Estoque</span>
                 </a>
+                @endcan
+
+                {{-- Relatórios - Admin e Gerente --}}
+                @can('view-reports')
                 <a href="{{ route('admin.relatorio.index') }}" class="nav-subitem {{ request()->routeIs('admin.relatorio.*') ? 'active' : '' }}">
                     <x-heroicon-o-chart-bar class="nav-icon" />
                     <span>Relatórios</span>
                 </a>
+                @endcan
             </div>
         </div>
+
+        {{-- Auditoria - apenas Admin --}}
+        @can('view-audit')
         <a href="{{ route('admin.auditoria.index') }}" class="nav-item {{ request()->routeIs('admin.auditoria.*') ? 'active' : '' }}">
             <x-hugeicons-help-square class="nav-icon" />
             <span>Auditoria - Logs</span>
         </a>
+        @endcan
 
     </nav>
 

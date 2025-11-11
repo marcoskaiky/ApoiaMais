@@ -28,20 +28,29 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Rotas protegidas para administradores
-Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+// Rotas acessíveis por todos os usuários autenticados (Admin, Gerente e Operador)
+Route::middleware(['auth', 'operador'])->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard - todos podem acessar
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+
+    // Perfil - todos podem gerenciar seu próprio perfil
     Route::resource('/profile', AdminProfileController::class);
-    Route::resource('/item', AdminItemController::class);
-    Route::resource('/estoque', AdminEstoqueController::class);
-    Route::resource('/users', AdminUserController::class);
-    Route::resource('/auditoria', AdminAuditoriaController::class);
-    Route::resource('/relatorio', AdminRelatorioController::class);
     Route::put('/profile/password/update', [AdminProfileController::class, 'updatePassword'])->name('profile.password.update');
+
     // Doadores e Instituições
     Route::get('/doadores', [AdminDoadorController::class, 'index'])->name('doadores.index');
     Route::post('/doadores', [AdminDoadorController::class, 'store'])->name('doadores.store');
     Route::post('/instituicoes', [AdminInstituicaoController::class, 'store'])->name('instituicoes.store');
+
+    // Estoque - todos podem visualizar
+    Route::get('/estoque', [AdminEstoqueController::class, 'index'])->name('estoque.index');
+    Route::get('/estoque/{id}', [AdminEstoqueController::class, 'show'])->name('estoque.show');
+
+    // Gestão de Itens
+    Route::resource('/item', AdminItemController::class);
+
+    // Receber Doações - todos podem registrar doações recebidas
+    Route::resource('receber-doacaos', ReceberDoacaoController::class);
 
     // Cadastros Gerais - Categorias e Campanhas
     Route::get('/cadastros-gerais', [CampCateController::class, 'index'])->name('cadastros.index');
@@ -51,9 +60,23 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::post('/tipos-campanha', [CampCateController::class, 'storeTipoCampanha'])->name('tipos-campanha.store');
     Route::put('/tipos-campanha/{id}', [CampCateController::class, 'updateTipoCampanha'])->name('tipos-campanha.update');
     Route::delete('/tipos-campanha/{id}', [CampCateController::class, 'destroyTipoCampanha'])->name('tipos-campanha.destroy');
+});
 
-    // Receber Doações (resource)
-    Route::resource('receber-doacaos', ReceberDoacaoController::class);
+
+// Rotas acessíveis por Admin e Gerente
+Route::middleware(['auth', 'gerente'])->prefix('admin')->name('admin.')->group(function () {
+
+    // Relatórios
+    Route::resource('/relatorio', AdminRelatorioController::class);
+});
+
+// Rotas exclusivas para Admin
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // Gestão de Usuários - apenas Admin
+    Route::resource('/users', AdminUserController::class);
+
+    // Auditoria - apenas Admin
+    Route::resource('/auditoria', AdminAuditoriaController::class);
 });
 
 require __DIR__ . '/auth.php';

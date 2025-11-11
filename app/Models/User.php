@@ -60,6 +60,26 @@ class User extends Authenticatable
     }
 
     /**
+     * Check if user is a gerente (manager)
+     *
+     * @return bool
+     */
+    public function isGerente(): bool
+    {
+        return $this->role === 'gerente';
+    }
+
+    /**
+     * Check if user is an operador (operator)
+     *
+     * @return bool
+     */
+    public function isOperador(): bool
+    {
+        return $this->role === 'operador';
+    }
+
+    /**
      * Check if user has a specific role
      *
      * @param string $role
@@ -68,5 +88,16 @@ class User extends Authenticatable
     public function hasRole(string $role): bool
     {
         return $this->role === $role;
+    }
+
+    /**
+     * Check if user has any of the given roles
+     *
+     * @param array $roles
+     * @return bool
+     */
+    public function hasAnyRole(array $roles): bool
+    {
+        return in_array($this->role, $roles);
     }
 }

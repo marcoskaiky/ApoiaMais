@@ -35,12 +35,9 @@ class AuthenticatedSessionController extends Controller
             'Realizou login no sistema'
         );
 
-        // Redirecionar admin para o dashboard admin
-        if (auth()->user()->isAdmin()) {
-            return redirect()->intended(route('admin.dashboard', absolute: false));
-        }
-
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Redirecionar todos os usuários autenticados para o dashboard admin
+        // (Admin, Gerente e Operador têm acesso ao dashboard)
+        return redirect()->intended(route('admin.dashboard', absolute: false));
     }
 
     /**
