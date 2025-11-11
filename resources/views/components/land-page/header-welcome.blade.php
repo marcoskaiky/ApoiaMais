@@ -11,8 +11,8 @@
     <div class="hidden md:flex flex-1 justify-end gap-8">
         <div class="flex items-center gap-9">
             <a href="#" class="text-sm font-medium leading-normal">Funcionalidades</a>
-            <a href="#" class="text-sm font-medium leading-normal">Depoimentos</a>
-            <a href="#" class="text-sm font-medium leading-normal">Comece Agora</a>
+            <a href="{{ url('/sobrenos') }}" class="text-sm font-medium leading-normal">Sobre Nós</a>
+            <a href="{{ url('/roadmap') }}" class="text-sm font-medium leading-normal">Roadmap do Sistema</a>
             <a href="{{ url('/faleconosco') }}" class="text-sm font-medium leading-normal">Fale Conosco</a>
         </div>
 

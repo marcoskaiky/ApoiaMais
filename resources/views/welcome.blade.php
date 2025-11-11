@@ -50,196 +50,113 @@
             <!-- Header -->
             @include('components.land-page.header-welcome')
 
-            <!-- Hero Section -->
-            <div class="px-4 lg:px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <div class="@container">
-                        <div class="@[480px]:p-4">
-                            <div class="hero-section flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4">
-                                <div class="flex flex-col gap-4 text-center max-w-2xl">
-                                    <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl">
-                                        Transforme a Gestão de Doações. Amplifique seu Impacto.
-                                    </h1>
-                                    <h2 class="text-gray-200 text-base font-normal leading-normal @[480px]:text-lg">
-                                        Apoia+ é a plataforma completa para otimizar seu estoque e impulsionar suas campanhas de arrecadação. Foco no que realmente importa: ajudar quem precisa.
-                                    </h2>
+            <main class="flex-1">
+                <section class="w-full py-20 lg:py-32">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+                        <div class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-center text-center px-4 py-10 sm:px-10" data-alt="Abstract blue and white gradient background representing support and community" style='background-image: linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuAaFsgDK41Wdq1fiiGjkz5m61U1sWen6vMzwiYl79tpGjkdvLCfdakof7shJCpBEf7gziqmmEiJcLIOX0fWATlMFKedU5NqB0EzrXhdyTDnkzONViV4HxwWo71LKMWSfGRFhxNSPZdViW3iddEbptY0RcPRrTg4zWxPyFcuLNTxU8zQz6STQ9ROXzMggJxn9JsanPWzUdSfJ6ryjomNOCxp232jv_FrfTJrkKY65vK0JQollQBlXhhztr5zQ7bzudPPCpnxp6QZCz6v");'>
+                            <div class="flex flex-col gap-4 text-left max-w-3xl">
+                                <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em] sm:text-5xl lg:text-6xl">
+                                    Transformando a gestão de doações da sua instituição.
+                                </h1>
+                                <h2 class="text-white text-base font-normal leading-normal sm:text-lg">
+                                    Apoia+: solução simples e eficiente para registrar doações e controlar estoques com segurança.
+                                </h2>
+                            </div>
+                            <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity">
+                                <span class="truncate">Saiba mais</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+                <section class="w-full py-16 lg:py-24 bg-white dark:bg-background-dark">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+                        <div class="flex flex-col gap-12">
+                            <div class="flex flex-col gap-4 text-center">
+                                <h2 class="text-gray-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] sm:text-4xl">Por que escolher o Apoia+?</h2>
+                                <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal max-w-2xl mx-auto">
+                                    Uma plataforma pensada para instituições: ferramentas completas para gerenciar doações, controlar o estoque e gerar relatórios operacionais.
+                                </p>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-800/50 p-6 text-center items-center">
+                                    <div class="flex items-center justify-center size-12 rounded-full bg-primary/20 text-primary">
+                                        <span class="material-symbols-outlined text-3xl">dashboard</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Controle centralizado</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Gerencie todas as doações e informações de estoque a partir de um painel único e intuitivo.</p>
+                                    </div>
                                 </div>
-                                <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 @[480px]:h-14 @[480px]:px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] @[480px]:text-lg">
-                                    <span class="truncate">Comece a Usar Gratuitamente</span>
-                                </button>
+                                <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-800/50 p-6 text-center items-center">
+                                    <div class="flex items-center justify-center size-12 rounded-full bg-primary/20 text-primary">
+                                        <span class="material-symbols-outlined text-3xl">inventory_2</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Inventário otimizado</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Evite desperdício e mantenha visibilidade do saldo disponível com atualizações de estoque em tempo real.</p>
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-4 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-gray-800/50 p-6 text-center items-center">
+                                    <div class="flex items-center justify-center size-12 rounded-full bg-primary/20 text-primary">
+                                        <span class="material-symbols-outlined text-3xl">monitoring</span>
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <h3 class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Relatórios confiáveis</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm font-normal leading-normal">Gere relatórios detalhados para mensurar impacto e apoiar decisões estratégicas.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Features Section -->
-            <div class="px-4 lg:px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <div class="flex flex-col gap-10 px-4 py-10 @container">
-                        <div class="flex flex-col gap-6 items-start">
-                            <div class="flex flex-col gap-4">
-                                <h1 class="text-[#111418] dark:text-white tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black @[480px]:leading-tight max-w-[720px]">
-                                    Funcionalidades Pensadas para sua Organização
-                                </h1>
-                                <p class="text-[#60758a] dark:text-gray-300 text-base font-normal leading-normal max-w-[720px]">
-                                    Descubra como o Apoia+ pode simplificar a gestão de doações e potencializar o alcance das suas campanhas.
+                </section>
+                <section class="w-full py-16 lg:py-24">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+                        <div class="flex flex-col gap-12 items-center">
+                            <div class="flex flex-col gap-4 text-center">
+                                <h2 class="text-gray-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em] sm:text-4xl">Como funciona</h2>
+                                <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal max-w-2xl mx-auto">
+                                    Inicie em poucos passos e otimize processos de recebimento e distribuição de doações com rapidez e segurança.
+                                </p>
+                            </div>
+                            <div class="w-full max-w-4xl relative">
+                                <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 dark:bg-gray-800 -translate-y-1/2"></div>
+                                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                                    <div class="flex flex-col items-center gap-4">
+                                        <div class="flex items-center justify-center size-12 rounded-full bg-primary text-white font-bold text-lg border-4 border-background-light dark:border-background-dark">1</div>
+                                        <h3 class="text-gray-900 dark:text-white text-lg font-bold">Cadastre sua instituição</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm">Configuração rápida para colocar sua organização em operação.</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-4">
+                                        <div class="flex items-center justify-center size-12 rounded-full bg-primary text-white font-bold text-lg border-4 border-background-light dark:border-background-dark">2</div>
+                                        <h3 class="text-gray-900 dark:text-white text-lg font-bold">Gerencie doações</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm">Registre doações recebidas de forma ágil por meio de uma interface prática.</p>
+                                    </div>
+                                    <div class="flex flex-col items-center gap-4">
+                                        <div class="flex items-center justify-center size-12 rounded-full bg-primary text-white font-bold text-lg border-4 border-background-light dark:border-background-dark">3</div>
+                                        <h3 class="text-gray-900 dark:text-white text-lg font-bold">Controle o estoque</h3>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm">Acompanhe itens em estoque e otimize a distribuição de acordo com necessidades.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="w-full py-16 lg:py-24 bg-white dark:bg-background-dark">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+                        <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16 bg-background-light dark:bg-gray-800/50 p-8 sm:p-12 rounded-xl">
+                            <div class="w-full lg:w-1/2">
+                                <img alt="A group of diverse students collaborating around a laptop, smiling and engaged in a project." class="rounded-lg object-cover w-full h-auto aspect-video" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWFcmPDwkCR-usneb_M_s6xiJyVQNkWwKBJFOXs8LGLucLxCWTQu5CJEK-PXj-GNDSBr40W04OPU6EpFlOXXCIbl2BquWx6BlpOGa5UNrE6T8_XV_iboaNlNMFWiml-cTIBkEB4gWI9vvgmHt3l5utWsQxDfUGa5p0C9Mle9HPOkJT1OKheG2YsOfgATDjGf-n-YdDhHuH8D4l7XmKO0-9aZTtOYER7S23bCG8IX-j_FVe4LGX8Pm0MKS-Wp5BPP8oxyQPyDzIAhQ2" />
+                            </div>
+                            <div class="w-full lg:w-1/2 flex flex-col gap-4">
+                                <h2 class="text-gray-900 dark:text-white text-3xl font-bold leading-tight tracking-[-0.015em]">Sobre o Apoia+</h2>
+                                <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">
+                                    O Apoia+ é uma solução desenvolvida por estudantes com foco em instituições sem fins lucrativos. Nossa missão é oferecer uma ferramenta gratuita, robusta e de fácil utilização para otimizar o gerenciamento de doações e estoques, permitindo que as organizações concentrem seus esforços no atendimento à comunidade.
                                 </p>
                             </div>
                         </div>
-
-                        <div class="grid grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4 p-0">
-                            <!-- Card 1 -->
-                            <div class="flex flex-1 gap-4 rounded-lg border border-gray-200 dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] p-6 flex-col shadow-sm hover:shadow-lg transition-shadow duration-300">
-                                <div class="text-primary">
-                                    <span class="material-symbols-outlined !text-3xl">inventory_2</span>
-                                </div>
-                                <div class="flex flex-col gap-1">
-                                    <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Controle de Estoque Inteligente</h2>
-                                    <p class="text-[#60758a] dark:text-gray-300 text-sm font-normal leading-normal">
-                                        Monitore entradas, saídas e validades de produtos em tempo real. Saiba exatamente o que você tem e o que precisa.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 2 -->
-                            <div class="flex flex-1 gap-4 rounded-lg border border-gray-200 dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] p-6 flex-col shadow-sm hover:shadow-lg transition-shadow duration-300">
-                                <div class="text-primary">
-                                    <span class="material-symbols-outlined !text-3xl">campaign</span>
-                                </div>
-                                <div class="flex flex-col gap-1">
-                                    <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Criação de Campanhas Simplificada</h2>
-                                    <p class="text-[#60758a] dark:text-gray-300 text-sm font-normal leading-normal">
-                                        Crie e gerencie campanhas de arrecadação em minutos. Divulgue facilmente e acompanhe o progresso.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Card 3 -->
-                            <div class="flex flex-1 gap-4 rounded-lg border border-gray-200 dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] p-6 flex-col shadow-sm hover:shadow-lg transition-shadow duration-300">
-                                <div class="text-primary">
-                                    <span class="material-symbols-outlined !text-3xl">bar_chart</span>
-                                </div>
-                                <div class="flex flex-col gap-1">
-                                    <h2 class="text-[#111418] dark:text-white text-lg font-bold leading-tight">Relatórios de Impacto</h2>
-                                    <p class="text-[#60758a] dark:text-gray-300 text-sm font-normal leading-normal">
-                                        Gere relatórios visuais sobre o impacto de suas ações. Transparência para sua equipe e para seus doadores.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- How It Works -->
-            <div class="px-4 lg:px-40 flex flex-1 justify-center py-5">
-                <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-                    <h2 class="text-[#111418] dark:text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Como Funciona</h2>
-                    <div class="grid grid-cols-[40px_1fr] gap-x-4 px-4 py-5">
-
-                        <!-- Step 1 -->
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="flex items-center justify-center size-10 rounded-full bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">person_add</span>
-                            </div>
-                            <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full"></div>
-                        </div>
-                        <div class="flex flex-1 flex-col pb-8">
-                            <p class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">Passo 1</p>
-                            <p class="text-[#111418] dark:text-white text-lg font-medium leading-normal">Cadastre-se na Plataforma</p>
-                            <p class="text-[#60758a] dark:text-gray-300 text-base font-normal leading-normal mt-1">Crie sua conta gratuitamente em poucos minutos e tenha acesso a todas as nossas ferramentas.</p>
-                        </div>
-
-                        <!-- Step 2 -->
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="flex items-center justify-center size-10 rounded-full bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">move_to_inbox</span>
-                            </div>
-                            <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full"></div>
-                        </div>
-                        <div class="flex flex-1 flex-col pb-8">
-                            <p class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">Passo 2</p>
-                            <p class="text-[#111418] dark:text-white text-lg font-medium leading-normal">Organize seu Estoque</p>
-                            <p class="text-[#60758a] dark:text-gray-300 text-base font-normal leading-normal mt-1">Registre as doações recebidas, categorize os itens e tenha uma visão clara do seu inventário.</p>
-                        </div>
-
-                        <!-- Step 3 -->
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="flex items-center justify-center size-10 rounded-full bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">speaker_phone</span>
-                            </div>
-                            <div class="w-[2px] bg-gray-200 dark:bg-gray-700 h-full"></div>
-                        </div>
-                        <div class="flex flex-1 flex-col pb-8">
-                            <p class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">Passo 3</p>
-                            <p class="text-[#111418] dark:text-white text-lg font-medium leading-normal">Crie sua Campanha</p>
-                            <p class="text-[#60758a] dark:text-gray-300 text-base font-normal leading-normal mt-1">Lance campanhas de arrecadação, defina metas e compartilhe com sua rede de apoiadores.</p>
-                        </div>
-
-                        <!-- Step 4 -->
-                        <div class="flex flex-col items-center gap-2">
-                            <div class="flex items-center justify-center size-10 rounded-full bg-primary/20 text-primary">
-                                <span class="material-symbols-outlined">monitoring</span>
-                            </div>
-                        </div>
-                        <div class="flex flex-1 flex-col pb-8">
-                            <p class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">Passo 4</p>
-                            <p class="text-[#111418] dark:text-white text-lg font-medium leading-normal">Meça seu Impacto</p>
-                            <p class="text-[#60758a] dark:text-gray-300 text-base font-normal leading-normal mt-1">Acompanhe os resultados em tempo real e gere relatórios para demonstrar o impacto social do seu trabalho.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonials -->
-            <div class="px-4 lg:px-40 flex flex-1 justify-center py-10 bg-white dark:bg-[#1a1a1a]/50">
-                <div class="layout-content-container flex flex-col items-center max-w-[960px] flex-1 gap-10">
-                    <div class="flex flex-col gap-4 text-center">
-                        <h1 class="text-[#111418] dark:text-white tracking-tight text-[32px] font-bold leading-tight @[480px]:text-4xl @[480px]:font-black max-w-[720px]">
-                            O que nossos parceiros dizem
-                        </h1>
-                        <p class="text-[#60758a] dark:text-gray-300 text-base font-normal leading-normal max-w-[720px]">
-                            Organizações que confiam no Apoia+ para potencializar suas missões.
-                        </p>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                        <div class="flex flex-col gap-4 p-6 rounded-lg bg-background-light dark:bg-[#1a1a1a] shadow-sm">
-                            <div class="flex items-center gap-4">
-                                <img alt="Foto de Maria Silva" class="size-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb3Vy1pPsuAsU7LCb572T3f0TFaUsAfNASHm62P4ltHXJvZNsrTeiFocfz_qL3nRH5GP1QLDicJVOkhsmGJE2rkNwCNSu3MYkIvHeraoR1SVoP7oag_rqcgIbLScLc3_7-wiowgfVimsKr1An62XozUZISpKFOLeLiFTJaPLY5WuS0VIvJe8T8OOryIgPICL5eR3IY6qfBmjeV64Eel1ShSAzBwfTJnLwtMYCuRfYw3-TiV6PWRXNtggWSvyHw7PdplRhDq5JXQQYu" />
-                                <div>
-                                    <p class="font-bold text-[#111418] dark:text-white">Maria Silva</p>
-                                    <p class="text-sm text-[#60758a] dark:text-gray-300">Diretora da ONG Causa Nobre</p>
-                                </div>
-                            </div>
-                            <p class="text-[#111418] dark:text-white">"O Apoia+ revolucionou nossa gestão de doações. A plataforma é intuitiva e os relatórios de impacto nos ajudam a ser mais transparentes com nossos doadores. Ganhamos muito mais agilidade."</p>
-                        </div>
-
-                        <div class="flex flex-col gap-4 p-6 rounded-lg bg-background-light dark:bg-[#1a1a1a] shadow-sm">
-                            <div class="flex items-center gap-4">
-                                <img alt="Foto de João Pereira" class="size-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuASEur1wCAEDcrzrGHCJzvSOe_DUX2Rd8k2XWaZ6ywZleE_ID_WtvZrR7DfF2x1TSAPmw2lCKK2QRQlURUSjx-LKmxnA-uULNTbL8tIogFa3Go1jRPTtVi7eCGsqod0QU-PhhiARPurLVU0-kG2lnv1l5jlnGbCtgA07Up249_Q-CFjFhyHvovF7_lXIbRR456wS_2jKXx8bhjGul639L-FWfw6bqsExizC94KWZv9RdJ5g7556-2mlwq7clQ3gHNQRBiZPDiBTcyDl" />
-                                <div>
-                                    <p class="font-bold text-[#111418] dark:text-white">João Pereira</p>
-                                    <p class="text-sm text-[#60758a] dark:text-gray-300">Coordenador do Projeto Mão Amiga</p>
-                                </div>
-                            </div>
-                            <p class="text-[#111418] dark:text-white">"Criar campanhas de arrecadação ficou muito mais fácil e rápido. Conseguimos engajar nossa comunidade de forma muito mais eficaz e atingir nossas metas com o Apoia+."</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="px-4 lg:px-40 flex flex-1 justify-center py-20">
-                <div class="layout-content-container flex flex-col items-center text-center max-w-[960px] flex-1 gap-6">
-                    <h2 class="text-3xl font-bold text-[#111418] dark:text-white">Pronto para transformar sua organização?</h2>
-                    <p class="text-lg text-[#60758a] dark:text-gray-300 max-w-xl">Junte-se a centenas de organizações que já estão otimizando suas operações e ampliando seu impacto com o Apoia+.</p>
-                    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]">
-                        <span class="truncate">Comece a Usar Gratuitamente</span>
-                    </button>
-                </div>
-            </div>
+                </section>
+            </main>
 
             @include('components.land-page.footer-welcome')
         </div>

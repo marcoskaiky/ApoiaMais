@@ -48,6 +48,7 @@
         }
     </style>
 
+    @vite(['resources/css/home.css'])
     @vite(['resources/css/faleconosco.css'])
 </head>
 

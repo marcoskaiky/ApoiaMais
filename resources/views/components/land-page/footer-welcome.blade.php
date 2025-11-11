@@ -10,8 +10,9 @@
                 <a class="text-xl" href="{{ url('/') }}">Apoia +</a>
             </div>
             <div class="flex gap-6 text-[#60758a] dark:text-gray-300">
-                <a class="text-sm" href="#">Termos de Serviço</a>
-                <a class="text-sm" href="#">Política de Privacidade</a>
+                <a class="text-sm" href="#">Funcionalidades</a>
+                <a class="text-sm" href="{{ url('/sobrenos') }}">Sobre Nós</a>
+                <a class="text-sm" href="{{ url('/roadmap') }}">Roadmap do Sistema</a>
                 <a class="text-sm" href="{{ url('/faleconosco') }}">Contato</a>
             </div>
             <p class="text-sm text-gray-500 dark:text-gray-400">© {{ date('Y') }} Apoia+. Todos os direitos reservados.</p>
