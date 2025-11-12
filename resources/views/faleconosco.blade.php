@@ -141,7 +141,6 @@
                 </div>
             </div>
         </main>
-        <!-- Footer -->
         @include('components.land-page.footer-welcome')
     </div>
 </body>

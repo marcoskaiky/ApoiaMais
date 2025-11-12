@@ -31,6 +31,10 @@ Route::get('/sobrenos', function () {
     return view('sobre-nos');
 });
 
+Route::get('/funcionalidades', function () {
+    return view('funcionalidades');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -40,32 +44,24 @@ Route::middleware('auth')->group(function () {
 
 // Rotas acessíveis por todos os usuários autenticados (Admin, Gerente e Operador)
 Route::middleware(['auth', 'operador'])->prefix('admin')->name('admin.')->group(function () {
-    // Dashboard - todos podem acessar
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
 
-    // Perfil - todos podem gerenciar seu próprio perfil
     Route::resource('/profile', AdminProfileController::class);
     Route::put('/profile/password/update', [AdminProfileController::class, 'updatePassword'])->name('profile.password.update');
 
-    // Doadores e Instituições
     Route::get('/doadores', [AdminDoadorController::class, 'index'])->name('doadores.index');
     Route::post('/doadores', [AdminDoadorController::class, 'store'])->name('doadores.store');
     Route::post('/instituicoes', [AdminInstituicaoController::class, 'store'])->name('instituicoes.store');
 
-    // Estoque - todos podem visualizar
     Route::get('/estoque', [AdminEstoqueController::class, 'index'])->name('estoque.index');
     Route::get('/estoque/{id}', [AdminEstoqueController::class, 'show'])->name('estoque.show');
 
-    // Gestão de Itens
     Route::resource('/item', AdminItemController::class);
 
-    // Receber Doações - todos podem registrar doações recebidas
     Route::resource('receber-doacaos', ReceberDoacaoController::class);
 
-    // Enviar Doações - todos podem registrar envios de doações
     Route::resource('enviar-doacaos', EnviarDoacaoController::class);
 
-    // Cadastros Gerais - Categorias e Campanhas
     Route::get('/cadastros-gerais', [CampCateController::class, 'index'])->name('cadastros.index');
     Route::post('/categorias', [CampCateController::class, 'storeCategoria'])->name('categorias.store');
     Route::put('/categorias/{id}', [CampCateController::class, 'updateCategoria'])->name('categorias.update');
@@ -78,17 +74,13 @@ Route::middleware(['auth', 'operador'])->prefix('admin')->name('admin.')->group(
 
 // Rotas acessíveis por Admin e Gerente
 Route::middleware(['auth', 'gerente'])->prefix('admin')->name('admin.')->group(function () {
-
-    // Relatórios
     Route::resource('/relatorio', AdminRelatorioController::class);
 });
 
 // Rotas exclusivas para Admin
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    // Gestão de Usuários - apenas Admin
     Route::resource('/users', AdminUserController::class);
 
-    // Auditoria - apenas Admin
     Route::resource('/auditoria', AdminAuditoriaController::class);
 });
 

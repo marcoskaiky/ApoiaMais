@@ -5,13 +5,11 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Apoia+ | Gestão de Doações Simplificada</title>
+    <title>Sobre Nós - Apoia+</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <script>
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -50,116 +48,116 @@
     <div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
         <div class="layout-container flex h-full grow flex-col">
             @include('components/land-page.header-welcome')
-            <main class="flex-1">
-                <!-- HeroSection -->
-                <section class="flex justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
-                    <div class="layout-content-container flex flex-col items-center max-w-6xl flex-1 w-full">
-                        <div class="w-full">
-                            <div class="flex flex-col gap-8 lg:gap-12 lg:flex-row-reverse items-center">
-                                <div class="w-full lg:w-1/2 flex justify-center px-4 sm:px-0">
-                                    <img class="w-full max-w-sm sm:max-w-md h-auto object-cover rounded-xl shadow-lg" data-alt="Volunteers organizing donation boxes in a well-lit room." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgahcYhm_AyAI0nW_ca7ax4xAvsgJ07Ov4NpLQp2copYeNUu8m-2_c6rNY8Qi6Q5i1eaehXuRrBvDr3OtY2GriVtXuI5ab37d3WAjaQuhybm2_qrHQNn7mH4N18SkF8o7pD7AJH45mKua8AmSaVCrG8poWXE1KMYZxzGGYas3SqpV1PsEZfZxoaDTgUCCTZcyrSjsMylkYRgXqTKCWGTwMnW2PMCSSzqsEKPIor_NUG5wxlHH181kmho9WXHaSvwVM2Nb1GFIj4EdJ" />
+            <main class="flex flex-1 justify-center py-5 sm:py-10">
+                <div class="layout-content-container flex flex-col max-w-6xl flex-1 px-4 sm:px-6 lg:px-8 gap-16 sm:gap-24">
+                    <section class="@container">
+                        <div class="flex flex-col-reverse gap-8 px-4 py-10 @[864px]:flex-row @[864px]:items-center">
+                            <div class="flex w-full flex-col gap-6 text-center @[864px]:text-left @[864px]:w-1/2 @[864px]:pr-8">
+                                <div class="flex flex-col gap-4">
+                                    <h1 class="text-3xl font-black leading-tight tracking-tight sm:text-4xl lg:text-5xl dark:text-white">
+                                        Nascido da sala de aula para causar impacto real
+                                    </h1>
+                                    <h2 class="text-base font-normal leading-relaxed sm:text-lg dark:text-gray-300">
+                                        Conheça a história do Apoia+, um sistema de gestão de doações e estoque criado por estudantes para transformar a realidade de instituições.
+                                    </h2>
                                 </div>
-                                <div class="flex flex-col gap-6 text-center lg:text-left lg:w-1/2 px-4 sm:px-0">
-                                    <div class="flex flex-col gap-4">
-                                        <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-black leading-tight tracking-tight dark:text-white break-words">
-                                            Apoia+: Simplifique a Gestão de Doações e o Controle de Estoque
-                                        </h1>
-                                        <h2 class="text-sm sm:text-base md:text-lg font-normal leading-relaxed dark:text-gray-300">
-                                            Uma solução completa para instituições, desenvolvida para otimizar o recebimento, organização e distribuição de doações com total transparência.
-                                        </h2>
-                                    </div>
-                                    <div class="flex justify-center lg:justify-start">
-                                        <button class="flex min-w-[84px] w-full sm:w-auto sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-[0.015em] hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg">
-                                            <span class="truncate">Saber Mais</span>
+                                <div class="flex justify-center gap-4 @[864px]:justify-start">
+                                    <a href="{{ url('/funcionalidades') }}">
+                                        <button class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors">
+                                            <span class="truncate">Funcionalidades</span>
                                         </button>
-                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="w-full @[864px]:w-1/2">
+                                <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl" data-alt="Uma foto da equipe de estudantes do projeto Apoia+ colaborando em uma sessão de brainstorming em frente a um quadro branco." style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDtqZvZyZmXaQroyiGORRcmvYPlXsaN7ejPF-9s4xJElrlOzX72uO9pebPe3DYeNTIX70DCC7xbeq8FyOua8dmflOwZPA22mqvwleazXIakWVm5eFf6s155AL5qo11q9th82_U2PsyFFN-SrVK55jig6KuGDdwUqJPzD59BpYMtj4RB7lSIw1X7r_gPl2QbwNx8TtB2m5msEJfQQ2cdPVVcBe5bZL8I90eg2k1UmUL6Rw2QPJSwWzLYuwjgDcaEoIhG1Ro6WICyjK8a");'></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="flex flex-col items-center gap-12">
+                        <div class="flex flex-col gap-2 text-center max-w-3xl">
+                            <h2 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl dark:text-white">Nossos Pilares</h2>
+                            <p class="text-base font-normal leading-normal text-[#60758a] dark:text-gray-400">Três valores fundamentais que guiam cada passo do nosso projeto.</p>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
+                            <div class="flex flex-col items-center text-center p-6 bg-white dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-gray-800">
+                                <div class="mb-4 flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+                                    <span class="material-symbols-outlined !text-3xl">lightbulb</span>
+                                </div>
+                                <h3 class="text-lg font-bold dark:text-white">Inovação</h3>
+                                <p class="mt-2 text-sm text-[#60758a] dark:text-gray-400">Aplicamos tecnologia para criar soluções eficientes e acessíveis para problemas reais.</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center p-6 bg-white dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-gray-800">
+                                <div class="mb-4 flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+                                    <span class="material-symbols-outlined !text-3xl">groups</span>
+                                </div>
+                                <h3 class="text-lg font-bold dark:text-white">Impacto Social</h3>
+                                <p class="mt-2 text-sm text-[#60758a] dark:text-gray-400">Nosso foco é fortalecer instituições de caridade, ampliando seu alcance e otimizando seu trabalho.</p>
+                            </div>
+                            <div class="flex flex-col items-center text-center p-6 bg-white dark:bg-background-dark/50 rounded-lg border border-gray-200 dark:border-gray-800">
+                                <div class="mb-4 flex size-12 items-center justify-center rounded-full bg-primary/20 text-primary">
+                                    <span class="material-symbols-outlined !text-3xl">school</span>
+                                </div>
+                                <h3 class="text-lg font-bold dark:text-white">Aprendizado</h3>
+                                <p class="mt-2 text-sm text-[#60758a] dark:text-gray-400">O Apoia+ é um reflexo da nossa paixão por aprender, criar e evoluir constantemente.</p>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="flex flex-col gap-10">
+                        <div class="flex flex-col gap-2">
+                            <h2 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl px-4 dark:text-white">A Motivação por Trás do Apoia+</h2>
+                            <p class="text-base font-normal leading-relaxed px-4 text-[#60758a] dark:text-gray-400">
+                                O Apoia+ nasceu da nossa vontade de aplicar o conhecimento acadêmico para resolver um problema real. Identificamos as dificuldades que muitas instituições de caridade enfrentam na gestão de doações e controle de estoque e decidimos criar uma solução que trouxesse mais eficiência e transparência para o trabalho delas.
+                            </p>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <h2 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl px-4 dark:text-white">Nossa Jornada</h2>
+                            <p class="text-base font-normal leading-relaxed px-4 text-[#60758a] dark:text-gray-400">
+                                Desde a primeira linha de código até o lançamento da plataforma, nossa jornada foi marcada por desafios, colaboração intensa e muito aprendizado. Cada obstáculo superado fortaleceu nossa equipe e nosso compromisso com a causa, transformando uma ideia universitária em uma ferramenta de impacto real.
+                            </p>
+                        </div>
+                    </section>
+                    <section class="flex flex-col items-center gap-12">
+                        <div class="flex flex-col gap-2 text-center max-w-3xl">
+                            <h2 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl dark:text-white">Conheça a Equipe</h2>
+                            <p class="text-base font-normal leading-normal text-[#60758a] dark:text-gray-400">Os estudantes que transformaram uma ideia em realidade.</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+                            <div class="flex flex-col items-center text-center bg-white dark:bg-background-dark/50 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+                                <img class="h-24 w-24 rounded-full object-cover mb-4" data-alt="Foto de perfil de um jovem sorrindo, com cabelo curto e barba." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIny1X-MucELxAvlraUHTA36bXCJ2ncNMHHGkkbaNn8ZZE4BWfCuXH4Ou7gVVLWKkrcKv5t68U4pxist0nYp01VZ5D4NS_g4S2wPv-LJCejqc8yazuTBDvvXVdTUG-x-JfffiNMQ2T5cqjL7PquDt8se71qEedyxjJynkm9Zfph56qilvUsH4iPtPJ9bPN6P_9Relu0Jw8gWiU5r0bWeT-YtGis3eqJXmxv3FflioHQbevcVX99ii6OgNhC60JqkKxCsYtu8oq20-H" />
+                                <h3 class="text-lg font-bold dark:text-white">Lucas Oliveira</h3>
+                                <p class="text-sm text-primary">Desenvolvedor Full-Stack</p>
+                                <div class="mt-4 flex gap-4 text-[#60758a] dark:text-gray-400">
+                                    <a class="hover:text-primary transition-colors" data-alt="LinkedIn logo" href="#"><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                                        </svg></a>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center text-center bg-white dark:bg-background-dark/50 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+                                <img class="h-24 w-24 rounded-full object-cover mb-4" data-alt="Foto de perfil de um jovem sorrindo, com cabelo curto e barba." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIny1X-MucELxAvlraUHTA36bXCJ2ncNMHHGkkbaNn8ZZE4BWfCuXH4Ou7gVVLWKkrcKv5t68U4pxist0nYp01VZ5D4NS_g4S2wPv-LJCejqc8yazuTBDvvXVdTUG-x-JfffiNMQ2T5cqjL7PquDt8se71qEedyxjJynkm9Zfph56qilvUsH4iPtPJ9bPN6P_9Relu0Jw8gWiU5r0bWeT-YtGis3eqJXmxv3FflioHQbevcVX99ii6OgNhC60JqkKxCsYtu8oq20-H" />
+                                <h3 class="text-lg font-bold dark:text-white">Lucas Oliveira</h3>
+                                <p class="text-sm text-primary">Desenvolvedor Full-Stack</p>
+                                <div class="mt-4 flex gap-4 text-[#60758a] dark:text-gray-400">
+                                    <a class="hover:text-primary transition-colors" data-alt="LinkedIn logo" href="#"><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                                        </svg></a>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-center text-center bg-white dark:bg-background-dark/50 p-6 rounded-lg border border-gray-200 dark:border-gray-800">
+                                <img class="h-24 w-24 rounded-full object-cover mb-4" data-alt="Foto de perfil de um jovem sorrindo, com cabelo curto e barba." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIny1X-MucELxAvlraUHTA36bXCJ2ncNMHHGkkbaNn8ZZE4BWfCuXH4Ou7gVVLWKkrcKv5t68U4pxist0nYp01VZ5D4NS_g4S2wPv-LJCejqc8yazuTBDvvXVdTUG-x-JfffiNMQ2T5cqjL7PquDt8se71qEedyxjJynkm9Zfph56qilvUsH4iPtPJ9bPN6P_9Relu0Jw8gWiU5r0bWeT-YtGis3eqJXmxv3FflioHQbevcVX99ii6OgNhC60JqkKxCsYtu8oq20-H" />
+                                <h3 class="text-lg font-bold dark:text-white">Lucas Oliveira</h3>
+                                <p class="text-sm text-primary">Desenvolvedor Full-Stack</p>
+                                <div class="mt-4 flex gap-4 text-[#60758a] dark:text-gray-400">
+                                    <a class="hover:text-primary transition-colors" data-alt="LinkedIn logo" href="#"><svg class="h-5 w-5" fill="currentColor" viewbox="0 0 24 24">
+                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                                        </svg></a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <!-- FeatureSection -->
-                <section class="flex justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white dark:bg-background-dark/50">
-                    <div class="layout-content-container flex flex-col max-w-6xl flex-1 w-full">
-                        <div class="flex flex-col gap-8 lg:gap-12">
-                            <div class="flex flex-col gap-3 sm:gap-4 text-center max-w-3xl mx-auto px-4">
-                                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight dark:text-white">Tudo que você precisa para uma gestão eficiente</h2>
-                                <p class="text-sm sm:text-base font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">O Apoia+ foi pensado para centralizar e facilitar todas as operações da sua instituição, desde o registro de doações até a análise de dados.</p>
-                            </div>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                                <div class="flex flex-col flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark p-5 sm:p-6 hover:shadow-lg transition-shadow duration-200">
-                                    <div class="text-primary text-3xl sm:text-4xl"><span class="material-symbols-outlined">volunteer_activism</span></div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <h3 class="text-base sm:text-lg font-bold dark:text-white">Gestão de Doações</h3>
-                                        <p class="text-xs sm:text-sm font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Acompanhe e gerencie todas as doações recebidas de forma simples e organizada.</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark p-5 sm:p-6 hover:shadow-lg transition-shadow duration-200">
-                                    <div class="text-primary text-3xl sm:text-4xl"><span class="material-symbols-outlined">inventory_2</span></div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <h3 class="text-base sm:text-lg font-bold dark:text-white">Controle de Estoque</h3>
-                                        <p class="text-xs sm:text-sm font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Mantenha o controle do seu inventário em tempo real para otimizar a distribuição.</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark p-5 sm:p-6 hover:shadow-lg transition-shadow duration-200">
-                                    <div class="text-primary text-3xl sm:text-4xl"><span class="material-symbols-outlined">monitoring</span></div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <h3 class="text-base sm:text-lg font-bold dark:text-white">Dashboards Interativos</h3>
-                                        <p class="text-xs sm:text-sm font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Visualize dados e relatórios para tomar decisões mais assertivas e transparentes.</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark p-5 sm:p-6 hover:shadow-lg transition-shadow duration-200">
-                                    <div class="text-primary text-3xl sm:text-4xl"><span class="material-symbols-outlined">group</span></div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <h3 class="text-base sm:text-lg font-bold dark:text-white">Gestão de Usuários e Doadores</h3>
-                                        <p class="text-xs sm:text-sm font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Cadastre administradores e mantenha um registro completo de seus doadores.</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark p-5 sm:p-6 hover:shadow-lg transition-shadow duration-200">
-                                    <div class="text-primary text-3xl sm:text-4xl"><span class="material-symbols-outlined">label</span></div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <h3 class="text-base sm:text-lg font-bold dark:text-white">Categorias e Campanhas</h3>
-                                        <p class="text-xs sm:text-sm font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Personalize o sistema com categorias de itens e tipos de campanhas específicas.</p>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-1 gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-background-light dark:bg-background-dark p-5 sm:p-6 hover:shadow-lg transition-shadow duration-200">
-                                    <div class="text-primary text-3xl sm:text-4xl"><span class="material-symbols-outlined">manage_search</span></div>
-                                    <div class="flex flex-col gap-1.5">
-                                        <h3 class="text-base sm:text-lg font-bold dark:text-white">Logs de Auditoria</h3>
-                                        <p class="text-xs sm:text-sm font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Garanta a transparência e rastreabilidade com um sistema completo de logs e filtros.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Dashboard Showcase Section -->
-                <section class="flex justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
-                    <div class="layout-content-container flex flex-col items-center max-w-6xl flex-1 w-full gap-8 lg:gap-10">
-                        <div class="flex flex-col gap-3 sm:gap-4 text-center max-w-3xl mx-auto px-4">
-                            <h4 class="text-primary text-xs sm:text-sm font-bold tracking-wide uppercase">VISUALIZE SEU IMPACTO</h4>
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight dark:text-white">Dashboards que Contam uma História</h2>
-                            <p class="text-sm sm:text-base font-normal text-[#60758a] dark:text-gray-400 leading-relaxed">Nossos painéis interativos transformam dados brutos em insights claros, permitindo que você acompanhe o progresso, identifique tendências e demonstre o impacto do seu trabalho para a comunidade e doadores.</p>
-                        </div>
-                        <div class="w-full bg-white dark:bg-background-dark p-3 sm:p-4 md:p-6 border border-gray-200 dark:border-gray-800 rounded-xl shadow-2xl shadow-gray-200/50 dark:shadow-black/50">
-                            <img class="w-full h-auto object-cover rounded-lg" data-alt="A clean and modern dashboard interface showing various charts and graphs related to donations and inventory management." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmXw_Hz1kJbBn3oOEuX8tyH9QSuIT5_G-2JQpr1RjP-jrhZcAAg4IXNRqB_zHOeRgbNzZ3IYTYft34xfnvh0hzKHMoOgTkMKVbrW3LSZ5cge4P6vHvXHU09ex4ob4ZBs2cDmbhlub1gHXQsNAacO03W5z3bu6d2_QEdzH8W3kmbztgT4W323vaGkeEtvd4Sd6ZozBlwCqCVvIZEwBoW4UNl9Y0tqEjux1x0oTSsVwn1cwCXfIXHO4PGeu2m8glM78VS9vcJnZyOfjE" />
-                        </div>
-                    </div>
-                </section>
-                <!-- CTA Section -->
-                <section class="flex justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
-                    <div class="layout-content-container flex flex-col items-center text-center max-w-3xl flex-1 w-full gap-5 sm:gap-6">
-                        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight dark:text-white px-4">Pronto para transformar a gestão da sua instituição?</h2>
-                        <p class="text-sm sm:text-base font-normal text-[#60758a] dark:text-gray-400 leading-relaxed px-4">Descubra como o Apoia+ pode otimizar suas operações e ampliar seu impacto. Entre em contato conosco para saber mais sobre nosso projeto.</p>
-                        <a class="text-sm" href="{{ url('/faleconosco') }}">
-                            <button class="flex min-w-[84px] w-full sm:w-auto sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold tracking-[0.015em] hover:bg-primary/90 transition-all duration-200 shadow-md hover:shadow-lg mx-4">
-                                <span class="truncate">Entre em Contato</span>
-                            </button>
-                        </a>
-                    </div>
-                </section>
+                    </section>
+
+                </div>
             </main>
-            <!-- Footer -->
             @include('components.land-page.footer-welcome')
         </div>
     </div>

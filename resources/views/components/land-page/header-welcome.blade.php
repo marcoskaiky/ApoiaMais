@@ -5,24 +5,24 @@
                 <path d="M42.4379 44C42.4379 44 36.0744 33.9038 41.1692 24C46.8624 12.9336 42.2078 4 42.2078 4L7.01134 4C7.01134 4 11.6577 12.932 5.96912 23.9969C0.876273 33.9029 7.27094 44 7.27094 44L42.4379 44Z" fill="currentColor"></path>
             </svg>
         </div>
-        <a class="text-xl font-bold" href="{{ url('/') }}">Apoia +</a>
+        <a class="text-xl font-bold focus:outline-none" href="{{ url('/') }}">Apoia +</a>
     </div>
 
     <div class="hidden md:flex flex-1 justify-end gap-8">
         <div class="flex items-center gap-9">
-            <a href="#" class="text-sm font-medium leading-normal">Funcionalidades</a>
-            <a href="{{ url('/sobrenos') }}" class="text-sm font-medium leading-normal">Sobre Nós</a>
-            <a href="{{ url('/roadmap') }}" class="text-sm font-medium leading-normal">Roadmap do Sistema</a>
-            <a href="{{ url('/faleconosco') }}" class="text-sm font-medium leading-normal">Fale Conosco</a>
+            <a href="{{ url('/funcionalidades') }}" class="text-sm font-medium leading-normal focus:outline-none hover:text-primary transition-colors">Funcionalidades</a>
+            <a href="{{ url('/sobrenos') }}" class="text-sm font-medium leading-normal focus:outline-none hover:text-primary transition-colors">Sobre Nós</a>
+            <a href="{{ url('/roadmap') }}" class="text-sm font-medium leading-normal focus:outline-none hover:text-primary transition-colors">Roadmap do Sistema</a>
+            <a href="{{ url('/faleconosco') }}" class="text-sm font-medium leading-normal focus:outline-none hover:text-primary transition-colors">Fale Conosco</a>
         </div>
 
         <div class="flex gap-2">
             @auth
-            <a href="{{ route('admin.dashboard') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em]">
+            <a href="{{ route('admin.dashboard') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold leading-normal tracking-[0.015em] focus:outline-none hover:bg-primary/90 transition-colors">
                 <span class="truncate">Acessar Painel</span>
             </a>
             @else
-            <a href="{{ route('login') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em] dark:bg-primary/30 dark:text-white">
+            <a href="{{ route('login') }}" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-primary/20 text-primary text-sm font-bold leading-normal tracking-[0.015em] dark:bg-primary/30 dark:text-white focus:outline-none hover:bg-primary/30 transition-colors">
                 <span class="truncate">Login</span>
             </a>
             @endauth
