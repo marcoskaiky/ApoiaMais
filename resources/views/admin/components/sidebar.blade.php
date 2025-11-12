@@ -83,7 +83,7 @@
 
                 {{-- Enviar Doação - Admin e Gerente --}}
                 @can('send-donations')
-                <a href="#" class="nav-subitem">
+                <a href="{{ route('admin.enviar-doacaos.index') }}" class="nav-subitem {{ request()->routeIs('admin.enviar-doacaos.*') ? 'active' : '' }}">
                     <x-heroicon-o-arrow-up-circle class="nav-icon" />
                     <span>Enviar Doação</span>
                 </a>

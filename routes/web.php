@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\EstoqueController as AdminEstoqueController;
 use App\Http\Controllers\Admin\RelatorioController as AdminRelatorioController;
 use App\Http\Controllers\Admin\CampCateController;
 use App\Http\Controllers\Admin\ReceberDoacaoController;
+use App\Http\Controllers\Admin\EnviarDoacaoController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -60,6 +61,9 @@ Route::middleware(['auth', 'operador'])->prefix('admin')->name('admin.')->group(
 
     // Receber Doações - todos podem registrar doações recebidas
     Route::resource('receber-doacaos', ReceberDoacaoController::class);
+
+    // Enviar Doações - todos podem registrar envios de doações
+    Route::resource('enviar-doacaos', EnviarDoacaoController::class);
 
     // Cadastros Gerais - Categorias e Campanhas
     Route::get('/cadastros-gerais', [CampCateController::class, 'index'])->name('cadastros.index');
