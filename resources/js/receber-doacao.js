@@ -107,10 +107,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Campo de Validade
             if (temValidade) {
+                const hoje = new Date().toISOString().split('T')[0];
                 camposHtml += `
                     <div class="col-md-6 mb-3">
                         <label class="form-label d-inline-flex">Data de Validade<span class="text-danger px-1">* </span></label>
-                        <input type="date" class="form-control" name="itens[${itemIndex}][validade]" required>
+                        <input type="date" class="form-control" name="itens[${itemIndex}][validade]" min="${hoje}" required>
                     </div>
                 `;
             }

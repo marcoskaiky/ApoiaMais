@@ -67,6 +67,7 @@ class ReceberDoacaoController extends Controller
             'itens' => 'required|array|min:1',
             'itens.*.item_id' => 'required|exists:items,id',
             'itens.*.quantidade' => 'required|integer|min:1',
+            'itens.*.validade' => 'nullable|date|after_or_equal:today',
         ]);
 
         // Criar a doação
@@ -123,6 +124,7 @@ class ReceberDoacaoController extends Controller
             'itens' => 'required|array|min:1',
             'itens.*.id' => 'required|exists:receber_doacao_items,id',
             'itens.*.quantidade' => 'required|integer|min:1',
+            'itens.*.validade' => 'nullable|date|after_or_equal:today',
             'itens_excluir' => 'nullable|array',
             'itens_excluir.*' => 'exists:receber_doacao_items,id',
         ]);
