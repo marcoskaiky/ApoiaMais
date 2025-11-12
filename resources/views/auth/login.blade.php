@@ -1,5 +1,6 @@
 @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/css/login.css'])
-
+<link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+<title>Login - Apoia+</title>
 <div class="admin-wrapper">
     <!-- Left sidebar / branding -->
     <aside class="sidebar">
