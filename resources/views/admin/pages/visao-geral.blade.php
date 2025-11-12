@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid py-4">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <h2 class="m-0 fw-semibold">Visão Geral</h2>
+            
         </div>
 
         <div class="card shadow-sm">
